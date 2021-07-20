@@ -1,0 +1,48 @@
+name: Test
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ '10', '12', '14', '16' ] 
+        # This project supports all active/current Node.js versions at
+        # https://nodejs.org/en/about/releases/
+    name: Node ${{ matrix.node }} test
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run test
+        env:
+          FORCE_COLOR: 1
+          ENABLE_GAS_REPORT: true
+      - run: npm run test:inheritance
+      - name: Print gas report
+        run: cat gas-report.txt
+
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+          # This should be the active or maintenance version at
+          # https://nodejs.org/en/about/releases/
+          cache: npm
+      - run: npm ci
+      - run: npm run coverage
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
+      - uses: codecov/codecov-action@v1
