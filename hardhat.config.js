@@ -28,7 +28,8 @@ for (const f of fs.readdirSync(path.join(__dirname, 'hardhat'))) {
  */
 module.exports = {
   solidity: {
-    version: '0.8.3',
+    version: '0.8.6', // "use the latest released version of Solidity"
+    // ^^ https://docs.soliditylang.org/en/latest/
     settings: {
       optimizer: {
         enabled: argv.enableGasReport || argv.compileMode === 'production',

@@ -120,6 +120,9 @@ abstract contract AccessControl is Context, IAccessControl, ERC165 {
 
     /**
      * @dev Returns `true` if `account` has been granted `role`.
+     * @param role you
+     * @param account oeunth
+     * @return auou
      */
     function hasRole(bytes32 role, address account) public view override returns (bool) {
         return _roles[role].members[account];

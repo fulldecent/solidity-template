@@ -1,3 +1,19 @@
+TODO: 
+
+shake out dependencies in package.json
+
+# Solidity Project Template
+
+Assumptions:
+
+- You prefer GitHub and GitHub Actions
+- Your project may be used to manage things worth millions of pounds of gold
+
+This project has an opinion and supporting documentation for every tooling, infrastructure or style decision you need to make. So start here, implement your project and know that you have done everything in the highest-quality way.
+
+
+
+
 Run test sute
 
 ```sh
@@ -19,3 +35,9 @@ FORCE_COLOR=1 ENABLE_GAS_REPORT=true npm run test
 npm run coverage
 ```
 
+# Rabbit Counting Token
+
+## References
+
+- Uses [best practices for developing Solidity projects](https://github.com/fulldecent/solidity-template)
+- 
