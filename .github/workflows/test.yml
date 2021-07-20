@@ -7,17 +7,11 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [ '10', '12', '14', '16' ] 
-        # This project supports all active/current Node.js versions at
-        # https://nodejs.org/en/about/releases/
-    name: Node ${{ matrix.node }} test
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 12
           cache: npm
       - run: npm ci
       - run: npm run lint
@@ -37,7 +31,7 @@ jobs:
           fetch-depth: 2
       - uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: 12
           # This should be the active or maintenance version at
           # https://nodejs.org/en/about/releases/
           cache: npm
