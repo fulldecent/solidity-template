@@ -1,5 +1,10 @@
 {
   "//": [
+    "This package.json is configured just to get dependencies and build your",
+    "project. If you want to publish something, like a library of smart",
+    "contracts that others will install using a package manager that uses",
+    "package.json, then also fill in the fields here relevant to publishing",
+    "",
     "This key is reserved for comments:",
     "https://groups.google.com/g/nodejs/c/NmL7jdeuw0M/m/yTqI05DRQrIJ"
   ],
