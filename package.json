@@ -5,9 +5,19 @@
     "contracts that others will install using a package manager that uses",
     "package.json, then also fill in the fields here relevant to publishing",
     "",
-    "This // key is reserved for comments:",
+    "This key is reserved for comments:",
     "https://groups.google.com/g/nodejs/c/NmL7jdeuw0M/m/yTqI05DRQrIJ"
   ],
+  "name": "rabbit-counting-token",
+  "version": "0.0.1",
+  "description": "A tool for tracking rabbits and building community",
+  "files": [
+    "/contracts/**/*.sol",
+    "/build/contracts/*.json",
+    "!/contracts/mocks/**/*"
+  ],
+  "keywords": [],
+  "license": "",
   "scripts": {
     "compile": "hardhat compile",
     "coverage": "hardhat coverage",
@@ -41,7 +51,6 @@
     "graphlib": "^2.1.8",
     "hardhat": "^2.0.6",
     "hardhat-gas-reporter": "^1.0.4",
-    "keccak256": "^1.0.2",
     "merkletreejs": "^0.2.23",
     "micromatch": "^4.0.2",
     "prettier": "^2.3.0",
@@ -55,12 +64,11 @@
     "yargs": "^17.0.0"
   },
   "devDependencies//": [
-    "acorn-jsx@5.3.2 requires a peer of acorn@^6.0.0 || ^7.0.0 || ^8.0.0",
-    "eth-gas-reporter@0.2.22 requires a peer of @codechecks/client@^0.1.0",
-    "These are erronously reported by npx depcheck.",
-    "",
-    "I don't know why this set of devDependencies works, I have tried updating",
-    "some and they fail on Linux. I got this set from some of OpenZeppelin",
-    "Contracts and can't improve any further now."
+    "@codechecks/client is needed as a peerdependency",
+    "acorn is needed as a peerdependency",
+    "solc-0.8 is added specifically as required by...",
+    "Some other things are reported as not used by npx depcheck but when doing",
+    "npm install, they are automagically added back in. One of those tools",
+    "should not be considered best practice."
   ]
 }
