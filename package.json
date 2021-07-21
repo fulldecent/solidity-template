@@ -3,6 +3,25 @@
     "This key is reserved for comments:",
     "https://groups.google.com/g/nodejs/c/NmL7jdeuw0M/m/yTqI05DRQrIJ"
   ],
+  "name": "rabbit-counting-token",
+  "version": "0.0.1",
+  "description": "A tool for tracking rabbits and building community",
+  "files": [
+    "/contracts/**/*.sol",
+    "/build/contracts/*.json",
+    "!/contracts/mocks/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OpenZeppelin/openzeppelin-contracts.git"
+  },
+  "keywords": [
+  ],
+  "author": "",
+  "license": "",
+  "bugs": "",
+  "homepage": "",
+
   "scripts": {
     "compile": "hardhat compile",
     "coverage": "hardhat coverage",
