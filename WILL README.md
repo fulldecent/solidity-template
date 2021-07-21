@@ -1,6 +1,7 @@
 TODO: 
 
-shake out dependencies in package.json
+- shake out dependencies in package.json
+- default on for ENABLE_GAS_REPORT and hardcode prices and gas
 
 # Solidity Project Template
 
@@ -40,4 +41,5 @@ npm run coverage
 ## References
 
 - Uses [best practices for developing Solidity projects](https://github.com/fulldecent/solidity-template)
-- 
+- Great implementation examples for setting up automated testing are maintained in the [OpenZeppelin Contracts project](https://github.com/OpenZeppelin/openzeppelin-contracts)
+- Hardhat is preferred for building // TODO: https://ethereum.stackexchange.com/questions/103840/what-is-the-origin-of-the-hardhat-project

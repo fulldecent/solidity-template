@@ -43,7 +43,7 @@ module.exports = {
     },
   },
   gasReporter: {
-    currency: 'USD',
+    currency: 'NONE',
     outputFile: argv.ci ? 'gas-report.txt' : undefined,
   },
 };
