@@ -40,9 +40,14 @@ npm run test:inheritance
 npm run coverage
 ```
 
-## References
+## References and best practices
 
 - Uses [best practices for developing Solidity projects](https://github.com/fulldecent/solidity-template)
 - Great implementation examples for setting up automated testing are maintained in the [OpenZeppelin Contracts project](https://github.com/OpenZeppelin/openzeppelin-contracts)
 - Hardhat is preferred for building // TODO: https://ethereum.stackexchange.com/questions/103840/what-is-the-origin-of-the-hardhat-project
 - A good review of setting up your editor to use tools here is provided [by Yarn](https://yarnpkg.com/getting-started/editor-sdks)
+- Set up VS Code
+  - See Hardhat + Mocha notes
+- Style
+  - Follow automated test cases and Solidity style guide, especially use NatSpec everywhere
+- Use the contract name in every revert message
