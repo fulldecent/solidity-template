@@ -1,31 +1,31 @@
-TODO: 
+# Solidity Template — Your Smart Contract Starting Point
 
-- shake out dependencies in package.json
-- default on for ENABLE_GAS_REPORT and hardcode prices and gas
+:moneybag: This project is a supported by a bug bounty, see [BUG-BOUNTY.md](BUG-BOUNTY.md).
 
-# Solidity Project Template
+## Introduction
 
-Assumptions:
+This repository is a starting point for anybody developing their own smart contracts. It is opinionated. You should use this as your starting point for all your projects.
 
-- You prefer GitHub and GitHub Actions
-- Your project may be used to manage things worth millions of pounds of gold
+**Reusable utilities**
 
-This project has an opinion and supporting documentation for every tooling, infrastructure or style decision you need to make. So start here, implement your project and know that you have done everything in the highest-quality way.
+See the contracts/Utilities folder.
 
-To use this project, delete this section and everything up to the triple line break. Now this is your project, touch each file to see what's up, and implement your product.
+**Implementations**
 
----
----
----
+See the contracts folder. In here are the contracts you would use to deploy your contract and other implementation-specific details.
 
-# Rabbit Counting Token
+## Deploy
+
+1. Deploy the contracts in the contracts folder (not subfolders)
 
 ## Run test suite
+
+If you are on an M1 Mac, note that Node.js is currently broken.
 
 Setup
 
 ```sh
-nvm install 12 # special instructions on M1 mac
+nvm install 12 # see special instructions above for M1 Mac
 nvm use 12
 npm install
 ```
@@ -34,20 +34,26 @@ Now run this each time you change contracts or test scripts:
 
 ```sh
 npm run prepare
-npm run lint
+npm run lint # note, we do not use Prettier style for Solidity
 FORCE_COLOR=1 ENABLE_GAS_REPORT=true npm run test
 npm run test:inheritance
 npm run coverage
 ```
 
-## References and best practices
+## Contributing
+
+This repository is supported by William Entriken. We are accepting contributions of new features to the repository but have not defined yet which new feaures are welcome (!).
+
+Please send pull requests to improve documentation and test cases. Please send issues for anything that might be improved.
+
+## References
 
 - Uses [best practices for developing Solidity projects](https://github.com/fulldecent/solidity-template)
 - Great implementation examples for setting up automated testing are maintained in the [OpenZeppelin Contracts project](https://github.com/OpenZeppelin/openzeppelin-contracts)
-- Hardhat is preferred for building // TODO: https://ethereum.stackexchange.com/questions/103840/what-is-the-origin-of-the-hardhat-project
+  - Hardhat is preferred for building
 - A good review of setting up your editor to use tools here is provided [by Yarn](https://yarnpkg.com/getting-started/editor-sdks)
 - Set up VS Code
-  - See Hardhat + Mocha notes
+  - See [Hardhat + Mocha notes](https://hardhat.org/guides/vscode-tests.html)
 - Style
-  - Follow automated test cases and Solidity style guide, especially use NatSpec everywhere
+  - Follow automated test cases and [Solidity style guide](https://docs.soliditylang.org/en/latest/style-guide.html), especially use [NatSpec](https://docs.soliditylang.org/en/latest/natspec-format.html?highlight=natspec) everywhere
 - Use the contract name in every revert message
