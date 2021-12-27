@@ -56,4 +56,5 @@ Please send pull requests to improve documentation and test cases. Please send i
   - See [Hardhat + Mocha notes](https://hardhat.org/guides/vscode-tests.html)
 - Style
   - Follow automated test cases and [Solidity style guide](https://docs.soliditylang.org/en/latest/style-guide.html), especially use [NatSpec](https://docs.soliditylang.org/en/latest/natspec-format.html?highlight=natspec) everywhere
+  - Use underbar prefix for and only for private variables/functions, see https://github.com/OpenZeppelin/openzeppelin-contracts/pull/2798
 - Use the contract name in every revert message
