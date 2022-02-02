@@ -3,13 +3,13 @@ const { ZERO_ADDRESS } = constants;
 
 const { expect } = require('chai');
 
-const Ownable = artifacts.require('OwnableAndRenounceableMock');
+const OwnableAndRenounceable = artifacts.require('OwnableAndRenounceableMock');
 
 contract('Ownable', function (accounts) {
   const [ owner, other ] = accounts;
 
   beforeEach(async function () {
-    this.ownable = await Ownable.new({ from: owner });
+    this.ownable = await OwnableAndRenounceable.new({ from: owner });
   });
 
   it('has an owner', async function () {
