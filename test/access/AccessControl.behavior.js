@@ -1,7 +1,7 @@
 const { expectEvent, expectRevert } = require('@openzeppelin/test-helpers');
 const { expect } = require('chai');
 
-const { shouldSupportInterfaces } = require('../utils/introspection/SupportsInterface.behavior');
+const { shouldSupportInterfaces } = require('../Utilities/introspection/SupportsInterface.behavior');
 
 const DEFAULT_ADMIN_ROLE = '0x0000000000000000000000000000000000000000000000000000000000000000';
 const ROLE = web3.utils.soliditySha3('ROLE');
