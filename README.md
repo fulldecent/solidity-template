@@ -2,6 +2,8 @@
 
 :moneybag: This project is a supported by a bug bounty, see [BUG-BOUNTY.md](BUG-BOUNTY.md).
 
+If you are using these contracts, click at top to WATCH this repository for updates and security fixes, and click SPONSOR above to ensure updates and fixes keep coming.
+
 ## Introduction
 
 This repository is a starting point for anybody developing their own smart contracts. It is opinionated. You should use this as your starting point for all your projects.
