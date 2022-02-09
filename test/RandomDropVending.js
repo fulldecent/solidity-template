@@ -126,7 +126,7 @@ contract('RandomDropVending', function (accounts) {
     });
   });
 
-  // It seems these tests must be run manually as our automated testing tools do not suuport this
+  // It seems these tests must be run manually as our automated testing tools do not support this
   // eslint-disable-next-line max-len
   // https://github.com/SuperFarmDAO/SuperFarm-Contracts/blob/99d43a417d4c6f567835f8fe5eb5a8d9eae40c0e/test/Token.test.js#L198-L199
   context.skip('when making first two commits (two commits in same block)', function () {
