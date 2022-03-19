@@ -1,6 +1,6 @@
 # Solidity Template — Your Smart Contract Starting Point
 
-:moneybag: This project is a supported by a bug bounty, see [BUG-BOUNTY.md](BUG-BOUNTY.md).
+This project is sponsored by: XXXX XXXX XXXX, your name here. Contact [Will](https://twitter.com/fulldecent) for details.
 
 If you are using these contracts, click at top to WATCH this repository for updates and security fixes, and click SPONSOR above to ensure updates and fixes keep coming.
 
@@ -43,6 +43,8 @@ npm run coverage
 ```
 
 ## Contributing
+
+:moneybag: See our bug bounty at [BUG-BOUNTY.md](BUG-BOUNTY.md) (NOT YET ACTIVE).
 
 This repository is supported by William Entriken. We are accepting contributions of new features to the repository but have not defined yet which new feaures are welcome (!).
 
