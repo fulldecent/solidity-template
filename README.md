@@ -6,7 +6,7 @@ If you are using these contracts, click at top to WATCH this repository for upda
 
 ## Introduction
 
-This repository is a starting point for anybody developing their own smart contracts. It is opinionated. You should use this as your starting point for all your projects.
+This repository is a starting point for anybody developing their own Solidity smart contracts. It is opinionated. You should use this as your starting point for all your projects.
 
 **Reusable utilities**
 
@@ -66,6 +66,18 @@ Please send pull requests to improve documentation and test cases. Please send i
 ### Style guide
 
 - Use the Solidity style guide for Solidity code https://docs.soliditylang.org/en/latest/
+  - 120 hard limit line length
+  - Function parameters start with an underscore (_)
+  - NatSpec
+    - Align whitespace for tags
+    - Align whitespace for `@param`s
+    - `@param` (and state variable `@dev`) are sentence case without capitalization for the first letter
+    - Events
+      - `@notice` sentence case without a period like "XXX was update"
+    - Functions
+      - `@notice` sentence case without a period like "Finishes a sale"
+      - `@dev` sentence case with a period at end
+  - Follow [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.12/style-guide.html?highlight=style) where it makes sense
 - Always use NatSpec with the `///` flavor (because Solidity documentation uses that one first, we can assume it is preferred). https://docs.soliditylang.org/en/latest/natspec-format.html
 - Wrap Solidity to 120 columns
 - Require/throw reasons should start with the name of the contract/library
