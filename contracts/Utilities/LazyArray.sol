@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
-pragma solidity 0.8.11; // code below expects that integer overflows will revert
+pragma solidity 0.8.13; // code below expects that integer overflows will revert
 
 /// @title  Part of Area, 🌐 the earth on the blockchain, 📌 geolocation NFTs
 /// @notice A data structure that supports random read and delete access and that efficiently initializes to a range of
