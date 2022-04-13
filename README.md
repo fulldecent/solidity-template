@@ -12,9 +12,9 @@ If you are using these contracts, click at top to WATCH this repository for upda
 
 2. Install project and run all tests
    ```sh
-   # Install Node 14+
-   npm install
-   npm test
+   # Install Node 14+ (or nvm install 14 && nvm use 14)
+   yarn install
+   yarn test
    ```
 
 3. Add your own application code inside the Contracts folder and tests inside the Tests folder.
@@ -39,25 +39,31 @@ See the contracts folder. In here are the contracts you would use to deploy your
 
 ## Run test suite
 
-If you are on an M1 Mac, note that Node.js is currently broken.
-
-Setup
+Run this each time you change contracts or test scripts:
 
 ```sh
-nvm install 12 # see special instructions above for M1 Mac
-nvm use 12
-npm install
+yarn run prepare
+yarn run lint # note, we do not use Prettier style for Solidity
+FORCE_COLOR=1 ENABLE_GAS_REPORT=true yarn run test
+yarn run test:inheritance
+yarn run coverage
 ```
 
-Now run this each time you change contracts or test scripts:
+## Smooth sailing
 
-```sh
-npm run prepare
-npm run lint # note, we do not use Prettier style for Solidity
-FORCE_COLOR=1 ENABLE_GAS_REPORT=true npm run test
-npm run test:inheritance
-npm run coverage
-```
+1. Install VS Code
+2. Install VS Code Remote - Containers extension
+3. Install a container system
+   1. Install podman (maybe `brew install podman`?)
+   2. `podman machine init`
+   3. `podman machine start`
+   4. Set VS Code setting Remote > Containers > Docker Path to `podman`
+
+4. Install VS Code extension [Mocha Test Explorer](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-mocha-test-adapter)  ([recommended](https://hardhat.org/guides/vscode-tests.html) by Hardhat)
+
+
+
+// todo: get mocha running inside container https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-mocha-test-adapter
 
 ## Contributing
 
