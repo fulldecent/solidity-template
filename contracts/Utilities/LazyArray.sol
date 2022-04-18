@@ -27,7 +27,7 @@ library LazyArray {
     /// @param  self          the data structure
     /// @param  initialLength how big to make the range
     function initialize(Self storage self, uint256 initialLength) internal {
-        require(self.length == 0, "Cannot initialize non-empty structure");
+        require(self.length == 0, "Cannot initialize empty structure");
         self.length = initialLength;
     }
 
