@@ -111,6 +111,7 @@ Please send pull requests to improve documentation and test cases. Please send i
   - Follow [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.12/style-guide.html?highlight=style) where it makes sense
   - When comparing things, prefer to compare what we have versus the requirement, like `msg.sender == owner` rather than the reverse order.
   - Every require must have a message and start with the name of the contract/library
+  - A data structure (a `library` with an embedded `struct`) must name the `struct` as `self`.
 - Always use NatSpec with the `///` flavor (because Solidity documentation uses that one first, we can assume it is preferred). https://docs.soliditylang.org/en/latest/natspec-format.html
 - Wrap Solidity to 120 columns
 - Prefix private/internal functions & variables with underscore (_)
