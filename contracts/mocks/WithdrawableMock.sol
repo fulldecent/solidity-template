@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 pragma solidity 0.8.11; // code below expects that integer overflows will revert
-import "../Utilities/Withdrawable.sol";
+import "../utilities/Withdrawable.sol";
 
 contract WithdrawableMock is Withdrawable {
     function sendValue() external payable {

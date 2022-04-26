@@ -2,8 +2,8 @@
 pragma solidity ^0.8.9;
 
 /// @title  Role-based access control inspired by CryptoKitties
-/// @dev    Keep the CEO wallet stored offline, I warned you.
 /// @author William Entriken (https://phor.net)
+/// @dev    Keep the CEO wallet stored offline, I warned you
 abstract contract AccessControlTwoOfficers {
     /// @notice The account that can only reassign officer accounts
     address public executiveOfficer;
@@ -15,7 +15,7 @@ abstract contract AccessControlTwoOfficers {
         executiveOfficer = msg.sender;
     }
 
-    /// @notice Reassign the executive officer role
+    /// @notice Reassign the executive officer role to `newExecutiveOfficer`
     /// @param  newExecutiveOfficer new officer address
     function setExecutiveOfficer(address newExecutiveOfficer) external {
         require(msg.sender == executiveOfficer);
@@ -23,7 +23,7 @@ abstract contract AccessControlTwoOfficers {
         executiveOfficer = newExecutiveOfficer;
     }
 
-    /// @notice Reassign the financial officer role
+    /// @notice Reassign the financial officer role to `newFinancialOfficer`
     /// @param  newFinancialOfficer new officer address
     function setFinancialOfficer(address payable newFinancialOfficer) external {
         require(msg.sender == executiveOfficer);

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 pragma solidity 0.8.11;
-import "../Utilities/LazyArray.sol";
+import "../utilities/LazyArray.sol";
 
 contract LazyArrayMock {
     using LazyArray for LazyArray.Self;

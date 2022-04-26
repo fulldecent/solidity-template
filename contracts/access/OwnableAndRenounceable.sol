@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.0;
 
-import "../utils/Context.sol";
+import "../utilities/Context.sol";
 
 /// @title  This contract allows an account to have access to certain contract features. By default this owner will be
 ///         the same account that deploys this contract. And an owner can transfer to a new owner.

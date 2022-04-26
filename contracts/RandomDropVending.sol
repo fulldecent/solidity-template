@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
 pragma solidity 0.8.11; // code below expects that integer overflows will revert
-import "./Utilities/LazyArray.sol";
-import "./Utilities/PlusCodes.sol";
-import "./Utilities/CommitQueue.sol";
+import "./utilities/LazyArray.sol";
+import "./utilities/PlusCodes.sol";
+import "./utilities/CommitQueue.sol";
 
 /// @title  Area commit-reveal drop contract, 🌐 the earth on the blockchain, 📌 geolocation NFTs
 /// @notice This contract assigns all code length 4 Plus Codes to participants with randomness provided by a
