@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
-pragma solidity 0.8.13;
-import "../Utilities/CommitQueue.sol";
+pragma solidity ^0.8.14;
+import "../Data structures/CommitQueue.sol";
 
 contract CommitQueueMock {
     using CommitQueue for CommitQueue.Self;

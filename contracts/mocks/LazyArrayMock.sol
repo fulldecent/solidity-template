@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
-pragma solidity 0.8.13;
-import "../Utilities/LazyArray.sol";
+pragma solidity ^0.8.14;
+import "../Data structures/LazyArray.sol";
 
 contract LazyArrayMock {
     using LazyArray for LazyArray.Self;
@@ -9,7 +9,7 @@ contract LazyArrayMock {
 
     event PopByIndexReturn(uint256 popped);
 
-    function initialize(uint256 initialLength) external {
+    function initialize(uint128 initialLength) external {
         _lazyArray.initialize(initialLength);
     }
 

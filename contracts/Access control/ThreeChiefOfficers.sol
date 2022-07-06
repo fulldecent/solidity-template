@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.14;
 
 /// @title  Three-party access control inspired by CryptoKitties. By default, the highest-privileged account will be the
 ///         same account that deploys this contract.
@@ -7,7 +7,7 @@ pragma solidity ^0.8.13;
 ///         Subclassing notes:
 ///          - Use inheritance to gain functionality from `ThreeChiefOfficers`.
 ///          - Modify your functionss with `onlyOperatingOfficer` to restrict access as needed.
-/// @author William Entriken (https://phor.net)
+/// @author William Entriken (https://phor.net) from Solidity-Template
 abstract contract ThreeChiefOfficers {
     /// @notice The account that can only reassign officer accounts
     address private _executiveOfficer;
@@ -18,9 +18,20 @@ abstract contract ThreeChiefOfficers {
     /// @notice The account that can collect Ether from this contract
     address payable private _financialOfficer;
 
+    /// @dev Revert with an error when attempting privileged access without being executive officer.
+    error NotExecutiveOfficer();
+
+    /// @dev Revert with an error when attempting privileged access without being operating officer.
+    error NotOperatingOfficer();
+
+    /// @dev Revert with an error when attempting privileged access without being financial officer.
+    error NotFinancialOfficer();
+
     /// @dev This throws unless called by the owner.
     modifier onlyOperatingOfficer() {
-        require(msg.sender == _operatingOfficer, "ThreeChiefOfficers: only the operating officer may do that");
+        if (msg.sender != _operatingOfficer) {
+            revert NotOperatingOfficer();
+        }
         _;
     }
 
@@ -31,27 +42,35 @@ abstract contract ThreeChiefOfficers {
     /// @notice Reassign the executive officer role
     /// @param  newExecutiveOfficer new officer address
     function setExecutiveOfficer(address newExecutiveOfficer) external {
-        require(msg.sender == _executiveOfficer, "ThreeChiefOfficers: only the executive officer may assign officers");
+        if (msg.sender != _executiveOfficer) {
+            revert NotExecutiveOfficer();
+        }
         _executiveOfficer = newExecutiveOfficer;
     }
 
     /// @notice Reassign the operating officer role
     /// @param  newOperatingOfficer new officer address
     function setOperatingOfficer(address payable newOperatingOfficer) external {
-        require(msg.sender == _executiveOfficer, "ThreeChiefOfficers: only the executive officer may assign officers");
+        if (msg.sender != _executiveOfficer) {
+            revert NotExecutiveOfficer();
+        }
         _operatingOfficer = newOperatingOfficer;
     }
 
     /// @notice Reassign the financial officer role
     /// @param  newFinancialOfficer new officer address
     function setFinancialOfficer(address payable newFinancialOfficer) external {
-        require(msg.sender == _executiveOfficer, "ThreeChiefOfficers: only the executive officer may assign officers");
+        if (msg.sender != _executiveOfficer) {
+            revert NotExecutiveOfficer();
+        }
         _financialOfficer = newFinancialOfficer;
     }
 
     /// @notice Collect Ether from this contract
     function withdrawBalance() external {
-        require(msg.sender == _financialOfficer, "ThreeChiefOfficers: only the financial officer may withdraw ether");
+        if (msg.sender != _financialOfficer) {
+            revert NotFinancialOfficer();
+        }
         _financialOfficer.transfer(address(this).balance);
     }
 

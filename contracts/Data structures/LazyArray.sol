@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
-pragma solidity 0.8.13; // code below expects that integer overflows will revert
+pragma solidity ^0.8.14; // code below expects that integer overflows will revert
 
 /// @title  A data structure that supports random read and delete access and that efficiently initializes to a range of
 ///         [1, N]
@@ -20,11 +20,20 @@ library LazyArray {
         uint256 length;
     }
 
-    /// @notice Sets the logical contents to a range of [1, N].
+    /// @notice Access was attempted for a non-existent index
+    /// @param  index The index that was attempted to be accessed
+    error OutOfBounds(uint256 index);
+
+    /// @notice Attempted to initialize non-empty instance
+    error AlreadyInitialized();
+
+    /// @notice Sets the logical contents to a range of [1, N]
     /// @param  self          the data structure
     /// @param  initialLength how big to make the range, limited to 2^128 to prevent a SLOAD security issue
     function initialize(Self storage self, uint128 initialLength) internal {
-        require(self.length == 0, "Cannot initialize non-empty structure");
+        if (self.length != 0) {
+            revert AlreadyInitialized();
+        }
         self.length = initialLength;
     }
 
@@ -48,7 +57,9 @@ library LazyArray {
     /// @param  index   which element (zero indexed) to get
     /// @return element the specified element
     function getByIndex(Self storage self, uint256 index) internal view returns (uint256 element) {
-        require(index < self.length, "Out of bounds");
+        if (index >= self.length) {
+            revert OutOfBounds(index);
+        }
         return self.elements[index] == 0
             ? index + 1 // revert on overflow
             : self.elements[index];

@@ -4,7 +4,7 @@
 
 This project is sponsored by: XXXX XXXX XXXX, your name here. Contact [Will](https://twitter.com/fulldecent) for details.
 
-If you are using these contracts, click at top to WATCH this repository for updates and security fixes, and click SPONSOR above to ensure updates and fixes keep coming.
+Click at top to WATCH this repository for updates and security fixes, and click SPONSOR above to ensure updates and fixes keep coming.
 
 ## How to use this
 
@@ -17,7 +17,7 @@ If you are using these contracts, click at top to WATCH this repository for upda
    yarn test
    ```
 
-3. Add your own application code inside the Contracts folder and tests inside the Tests folder.
+3. Add your own application code inside the [contract](contracts) folder and tests inside the Tests folder.
 
 4. Delete stuff you don't need.
 
@@ -78,6 +78,79 @@ Please send pull requests to improve documentation and test cases. Please send i
 * The zero address (0x00...00) is no more special than the one address (0x00...01). If your application treats them differently, document it.
 * Log things that people might reasonably want to look up or index.
 
+## Style guide
+
+Local conventions in this project include:
+
+* <kbd>.sol</kbd> <kbd>.js</kbd> 120 hard limit line length
+* <kbd>.md</kbd> File names and headings are sentence case. Except the name of this project is title case.
+
+We recognize the following as best practice for all Solidity development:
+
+* Code documentation
+
+  * >  It is recommended that Solidity contracts are fully annotated using [NatSpec](https://docs.soliditylang.org/en/latest/natspec-format.html#natspec) for all public interfaces (everything in the ABI).
+    >
+    > https://docs.soliditylang.org/en/latest/style-guide.html?highlight=style
+
+  * Always use NatSpec with the `///` flavor (because [Solidity documentation](https://docs.soliditylang.org/en/latest/natspec-format.html) uses that one first, we can assume it is preferred). 
+
+  * Align whitespace for tags, and then params do:
+
+    ```solidity
+    /// @notice Hi
+    /// @dev    This does things.
+    /// @param  name the self-chosen name for this entity
+    /// @param  age  time since their birth, in seconds
+    ```
+
+    not:
+
+    ```solidity
+    /// @notice Hi
+    /// @dev This does things.
+    /// @param name the self-chosen name for this entity
+    /// @param age time since their birth, in seconds
+    ```
+
+  * For `@param` (and state variable `@dev`), use  sentence case without capitalization for the first letter, do:
+
+    ```solidity
+    /// @param tokenID the token to operate on
+    ```
+
+    not:
+
+    ```solidity
+    /// @param tokenID The token to operate on.
+    ```
+
+  * For `@notice`...
+
+    * with an `event`, use past-simple tense without a period like "Tokens were transferred".
+    * with a `function`, use sentence case in present-simple tense without a period like "Finish a sale".
+
+* When comparing things, prefer to compare what we have versus the requirement, like `msg.sender == owner` rather than the reverse order.
+
+* For error conditions, prefer using `revert()` with an `error`. If using `require()`, always include a revert-string and that string must start with the name of the contract/library.
+
+* A data structure (a `library` with an embedded `struct`) must name the `struct` as `self`.
+
+* For abstract contracts, design for safety by enforcing rules if possible
+
+  - See in ThreeChiefOfficers how the state variables are kept private. This is because the
+    security guarantee (limited functionality) requires that an inheriting contract will not
+    those values. If it had used non-private scope then inheriting contracts could have violated that.
+
+* Use an underscore (`_`) suffix for function parameters that would collide with a named state variable.
+
+Where not more specifically addressed above, we defer all style decisions to (in order):
+
+1. The [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.12/style-guide.html?highlight=style) where it makes sense
+   1. Prefix private/internal functions & variables with underscore (`_`)
+2. Conventions in [Seaport](https://github.com/ProjectOpenSea/seaport)
+3. Conventions in [OpenZeppelin Contracts](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/cryptography/MerkleProof.sol)
+
 ## References
 
 - Uses [best practices for developing Solidity projects](https://github.com/fulldecent/solidity-template)
@@ -92,28 +165,4 @@ Please send pull requests to improve documentation and test cases. Please send i
 - Use the contract name in every revert message
 - Use a container for all work
 
-### Style guide
-
-- Use the Solidity style guide for Solidity code https://docs.soliditylang.org/en/latest/
-  - 120 hard limit line length
-  - Function parameters start with an underscore (_)
-  - NatSpec
-    - Align whitespace for tags
-    - Align whitespace for `@param`s
-    - `@param` (and state variable `@dev`) are sentence case without capitalization for the first letter
-    - Events
-      - `@notice` sentence case in past-simple tense without a period like "Tokens were transferred"
-    - Functions
-      - `@notice` sentence case in present-simple tense without a period like "Finish a sale"
-      - `@dev` sentence case with a period at end
-    - State variables
-      - `@notice` (same as `@return`)
-  - Follow [Solidity Style Guide](https://docs.soliditylang.org/en/v0.8.12/style-guide.html?highlight=style) where it makes sense
-  - When comparing things, prefer to compare what we have versus the requirement, like `msg.sender == owner` rather than the reverse order.
-  - Every require must have a message and start with the name of the contract/library
-  - A data structure (a `library` with an embedded `struct`) must name the `struct` as `self`.
-- Always use NatSpec with the `///` flavor (because Solidity documentation uses that one first, we can assume it is preferred). https://docs.soliditylang.org/en/latest/natspec-format.html
-- Wrap Solidity to 120 columns
-- Prefix private/internal functions & variables with underscore (_)
-- File names and headings are sentence case. Except the name of this project is title case.
 - 

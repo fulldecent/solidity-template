@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
-pragma solidity 0.8.13; // code below expects that integer overflows will revert
+pragma solidity ^0.8.14; // code below expects that integer overflows will revert
 
 /// @title  A multi-queue data structure for commits that are waiting to be revealed
 /// @author William Entriken, for Area NFT

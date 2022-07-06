@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
-pragma solidity 0.8.13; // code below expects that integer overflows will revert
+pragma solidity ^0.8.14; // code below expects that integer overflows will revert
 import "../Utilities/Withdrawable.sol";
 
 contract WithdrawableMock is Withdrawable {
