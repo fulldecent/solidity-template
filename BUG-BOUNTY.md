@@ -61,9 +61,9 @@ Rewards:
 - **High severity** — partial payout of the bug bounty (USD 5,000)
 - **Medium severity** — partial payout of the bug bounty (USD 1,000)
 - Every accepted problem report will also receive
-  - This limited, first edition [Area T-shirt](https://raw.githubusercontent.com/AreaWorld/ethereum-contracts/main/t-shirt.png?token=AT6I46YTDQSGRIWQX2LQE4TBK24BC), mailed to your house, in time for you to wear at NFT.nyc
-  - One Area NFT token from the token drop
-  - Public acknowledgement from the Area team and personally from the contract developer on Twitter (if you allow)
+  - This limited, first edition Blockchain Community Service Hour T-shirt (ADD LINK), mailed to your house, in time for you to wear at NFT.nyc
+  - One Community Service Hour NFT token from the token drop (pending project definition and launch)
+  - Public acknowledgement from the Community Service Hour Team team and personally from Will on Twitter (if you allow)
 
 Examples of impact:
 
