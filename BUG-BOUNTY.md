@@ -1,3 +1,5 @@
+This bug bounty is a draft and is not active yet.
+
 # Solidity Template Bug Bounty :bug: = :moneybag:
 
 *This documents the Solidity Template bug bounty program and how you can get rewarded for finding problems with this project.*
