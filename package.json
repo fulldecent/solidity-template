@@ -1,44 +1,24 @@
 {
-  "//": [
-    "This package.json is configured just to get dependencies and build your",
-    "project. If you want to publish something, like a library of smart",
-    "contracts that others will install using a package manager that uses",
-    "package.json, then also fill in the fields here relevant to publishing",
-    "",
-    "This key is reserved for comments:",
-    "https://groups.google.com/g/nodejs/c/NmL7jdeuw0M/m/yTqI05DRQrIJ"
-  ],
+  "name": "solidity-template",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "scripts": {
-    "build": "hardhat compile",
-    "test": "hardhat test",
-    "profile": "REPORT_GAS=true hardhat test",
-    "coverage": "hardhat coverage",
-    "lint:check": "yarn lint:check:format && yarn lint:check:solhint && yarn lint:check:eslint",
-    "lint:check:format": "prettier --check **.{sol,js,ts}",
-    "lint:check:solhint": "yarn build && solhint contracts/**/*.sol",
-    "lint:check:eslint": "eslint . --ext js"
+    "build": "hardhat build",
+    "test": "hardhat test nodejs",
+    "coverage": "hardhat test nodejs --coverage",
+    "lint": "solhint \"contracts/**/*.sol\""
   },
   "devDependencies": {
-    "@nomiclabs/hardhat-ethers": "^2.0.0",
-    "@nomiclabs/hardhat-waffle": "^2.0.0",
-    "chai": "^4.2.0",
-    "ethereum-waffle": "^3.0.0",
-    "ethers": "^5.0.0",
-    "hardhat": "^2.9.9",
-    "eslint": "^7",
-    "eslint-config-standard": "^16",
-    "eslint-plugin-import": "^2.20.0",
-    "eslint-plugin-mocha-no-only": "^1.1.0",
-    "eslint-plugin-node": "^11",
-    "eslint-plugin-promise": "^5",
-    "merkletreejs": "^0.2.23",
-    "prettier": "^2.3.0",
-    "prettier-plugin-solidity": "^1.0.0-beta.16",
-    "solhint": "^3.3.6",
-    "solidity-ast": "^0.4.25",
-    "solidity-coverage": "^0.7.11"
-  },
-  "dependencies": {
-    "17": "^0.0.0"
+    "@nomicfoundation/hardhat-ignition": "^3.1.8",
+    "@nomicfoundation/hardhat-toolbox-viem": "^5.0.7",
+    "@types/node": "^22.20.5",
+    "hardhat": "^3.19.0",
+    "solhint": "^6.0.0",
+    "typescript": "~6.0.3",
+    "viem": "^2.47.6"
   }
 }

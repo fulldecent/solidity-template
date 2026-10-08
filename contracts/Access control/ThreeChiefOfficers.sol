@@ -71,7 +71,8 @@ abstract contract ThreeChiefOfficers {
         if (msg.sender != _financialOfficer) {
             revert NotFinancialOfficer();
         }
-        _financialOfficer.transfer(address(this).balance);
+        (bool success, ) = _financialOfficer.call{value: address(this).balance}("");
+        require(success, "ThreeChiefOfficers: transfer failed");
     }
 
     /// @notice Get the chief executive officer

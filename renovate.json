@@ -1,11 +1,3 @@
 {
-  "extends": [
-    "github>OpenZeppelin/code-style"
-  ],
-  "packageRules": [
-    {
-      "extends": ["packages:eslint"],
-      "enabled": false
-    }
-  ]
+  "extends": ["config:recommended"]
 }

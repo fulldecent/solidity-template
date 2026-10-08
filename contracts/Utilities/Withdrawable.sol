@@ -20,7 +20,8 @@ contract Withdrawable {
         uint256 amountToWithdraw = _pendingWithdrawals[msg.sender];
         // Remember to zero the pending refund before sending to prevent re-entrancy attacks
         delete _pendingWithdrawals[msg.sender];
-        payable(msg.sender).transfer(amountToWithdraw);
+        (bool success, ) = payable(msg.sender).call{value: amountToWithdraw}("");
+        require(success, "Withdrawable: transfer failed");
         emit PendingWithdrawal(msg.sender, 0);
     }
 
