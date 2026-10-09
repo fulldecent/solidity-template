@@ -17,7 +17,7 @@
 >
 > And now below is the template, shown for a specific hypothetical project, enjoy!
 
-[![Test](https://github.com/fulldecent/solidity-template/actions/workflows/test.yml/badge.svg)](https://github.com/fulldecent/solidity-template/actions/workflows/test.yml)
+[![Lint](https://github.com/fulldecent/solidity-template/actions/workflows/lint.yml/badge.svg)](https://github.com/fulldecent/solidity-template/actions/workflows/lint.yml) [![Build and test](https://github.com/fulldecent/solidity-template/actions/workflows/build-test.yml/badge.svg)](https://github.com/fulldecent/solidity-template/actions/workflows/build-test.yml)
 
 **PROJECT STATUS: Technology preview, bug bounty not active.**
 
@@ -137,6 +137,35 @@ npx tsc --noEmit
 
 Tests live in `test/` and use the Node.js test runner with viem. They talk to a simulated chain through Hardhat 3.
 
+### Releases
+
+Use `fix:`, `feat:` or `BREAKING CHANGE:` in your commit messages. This triggers our bot to make a release draft pull request. Merging that pull request triggers a new tag and GitHub Release.
+
+The [release workflow](.github/workflows/release.yml) uses Release Please's `simple` release type. Set the version in [package.json](package.json) to the proposed release version before merging the release pull request.
+
+[Build and test](.github/workflows/build-test.yml) installs dependencies, lints and tests the contracts, copies them to `dist/`, then attests and uploads that directory. The release includes the contracts and `release.sigstore.jsonl`, containing build provenance and version attestations.
+
+> [!NOTE]
+> In your GitHub repository settings, under Actions, General, Workflow permissions, select read and write permissions and check "Allow GitHub Actions to create and approve pull requests". Under General, Releases, enable release immutability. Attestations are available for public repositories; private repositories require GitHub Enterprise Cloud.
+>
+> Run these commands from a clone of the new repository. `gh` fills in `{owner}/{repo}` from that clone.
+>
+> List tags:
+>
+> ```sh
+> gh api repos/{owner}/{repo}/tags --jq '.[].name'
+> ```
+>
+> Set the starting tag on the current `main` commit. `v0.0.0` is the version Release Please counts forward from. Use another `vMAJOR.MINOR.PATCH` tag when this repository should start later.
+>
+> ```sh
+> gh api --method POST repos/{owner}/{repo}/git/refs \
+>   -f ref="refs/tags/v0.0.0" \
+>   -f sha="$(gh api repos/{owner}/{repo}/commits/main --jq .sha)"
+> ```
+>
+> `gh release list` and `gh release create` publish the releases this workflow creates after that tag.
+
 ### Idioms
 
 - The zero address (`0x00...00`) is no more special than the one address (`0x00...01`). If your application treats them differently, document it.
@@ -198,10 +227,9 @@ We specifically will not add a frontend, an indexer, or a production token deplo
 1. We use title case only for proper nouns, including the name of our project.
 2. We recommend to use your package manager to install Node.js because installer sites for Node, nvm, Foundry (`getfoundry.sh`) and similar tools often prefer the unsafe `curl|sh` method. Foundry's own installation page uses `curl -L https://getfoundry.sh/install | bash`; do not run that. See also [rust-lang/rust#163468](https://github.com/rust-lang/rust/issues/163468) and the notes in [fulldecent/rust-template](https://github.com/fulldecent/rust-template).
 3. This project is built based on [best practices documented in solidity-template](https://github.com/fulldecent/solidity-template/).
-4. Tooling follows [Hardhat 3](https://hardhat.org/docs/getting-started) with the [viem toolbox](https://hardhat.org/docs/plugins/hardhat-toolbox-viem).
-5. This project is released under the [Apache License 2.0](LICENSE.md).
+4. This project is built based on [best practices documented in project-template](https://github.com/fulldecent/project-template), release v1.3.0.
+5. Tooling follows [Hardhat 3](https://hardhat.org/docs/getting-started) with the [viem toolbox](https://hardhat.org/docs/plugins/hardhat-toolbox-viem).
+6. This project is released under the [Apache License 2.0](LICENSE.md).
 
 > [!NOTE]
 > Carefully consider which license to apply to your project. Cite external sources that materially informed your decisions, including the release of this Solidity template you used.
-
-Generated from [fulldecent/project-template](https://github.com/fulldecent/project-template)

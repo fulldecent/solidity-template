@@ -1,0 +1,6 @@
+*.md
+/node_modules/
+/artifacts/
+/cache/
+/coverage/
+/dist/
