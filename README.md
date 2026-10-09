@@ -17,7 +17,7 @@
 >
 > And now below is the template, shown for a specific hypothetical project, enjoy!
 
-[![Test](https://github.com/fulldecent/solidity-template/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/fulldecent/solidity-template/actions/workflows/test.yml)
+[![Test](https://github.com/fulldecent/solidity-template/actions/workflows/test.yml/badge.svg)](https://github.com/fulldecent/solidity-template/actions/workflows/test.yml)
 
 **PROJECT STATUS: Technology preview, bug bounty not active.**
 
