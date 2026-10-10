@@ -17,10 +17,7 @@ describe("ThreeChiefOfficers", async function () {
   describe("initial state", function () {
     it("the initial CEO should be the contract deployer", async function () {
       const { officers, ceo } = await networkHelpers.loadFixture(deployOfficers);
-      assert.equal(
-        (await officers.read.executiveOfficer()).toLowerCase(),
-        ceo.account.address.toLowerCase(),
-      );
+      assert.equal((await officers.read.executiveOfficer()).toLowerCase(), ceo.account.address.toLowerCase());
     });
 
     it("the initial CFO should be empty", async function () {
@@ -38,10 +35,7 @@ describe("ThreeChiefOfficers", async function () {
     it("should allow CEO to set CEO", async function () {
       const { officers, other } = await networkHelpers.loadFixture(deployOfficers);
       await officers.write.setExecutiveOfficer([other.account.address]);
-      assert.equal(
-        (await officers.read.executiveOfficer()).toLowerCase(),
-        other.account.address.toLowerCase(),
-      );
+      assert.equal((await officers.read.executiveOfficer()).toLowerCase(), other.account.address.toLowerCase());
     });
 
     it("should not allow random person to set CEO", async function () {
@@ -60,10 +54,7 @@ describe("ThreeChiefOfficers", async function () {
     it("should allow CEO to set CFO", async function () {
       const { officers, other } = await networkHelpers.loadFixture(deployOfficers);
       await officers.write.setFinancialOfficer([other.account.address]);
-      assert.equal(
-        (await officers.read.financialOfficer()).toLowerCase(),
-        other.account.address.toLowerCase(),
-      );
+      assert.equal((await officers.read.financialOfficer()).toLowerCase(), other.account.address.toLowerCase());
     });
 
     it("should not allow random person to set CFO", async function () {
@@ -82,10 +73,7 @@ describe("ThreeChiefOfficers", async function () {
     it("should allow CEO to set COO", async function () {
       const { officers, other } = await networkHelpers.loadFixture(deployOfficers);
       await officers.write.setOperatingOfficer([other.account.address]);
-      assert.equal(
-        (await officers.read.operatingOfficer()).toLowerCase(),
-        other.account.address.toLowerCase(),
-      );
+      assert.equal((await officers.read.operatingOfficer()).toLowerCase(), other.account.address.toLowerCase());
     });
 
     it("should not allow random person to set COO", async function () {
@@ -110,8 +98,7 @@ describe("ThreeChiefOfficers", async function () {
     });
 
     it("should not allow random person to perform COO privileged actions", async function () {
-      const { officers, coo, other } =
-        await networkHelpers.loadFixture(deployOfficers);
+      const { officers, coo, other } = await networkHelpers.loadFixture(deployOfficers);
       await officers.write.setOperatingOfficer([coo.account.address]);
       await viem.assertions.revertWithCustomError(
         officers.write.somethingOnlyOperatingOfficerCanDo({
@@ -143,15 +130,11 @@ describe("ThreeChiefOfficers", async function () {
       });
 
       assert.equal(after, before + donation - gas);
-      assert.equal(
-        await publicClient.getBalance({ address: officers.address }),
-        0n,
-      );
+      assert.equal(await publicClient.getBalance({ address: officers.address }), 0n);
     });
 
     it("should not allow random person to withdraw", async function () {
-      const { officers, cfo, other } =
-        await networkHelpers.loadFixture(deployOfficers);
+      const { officers, cfo, other } = await networkHelpers.loadFixture(deployOfficers);
       await officers.write.setFinancialOfficer([cfo.account.address]);
       await officers.write.donate({ value: parseEther("1") });
       await viem.assertions.revertWithCustomError(

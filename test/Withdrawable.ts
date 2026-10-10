@@ -15,24 +15,17 @@ describe("Withdrawable", async function () {
   }
 
   it("credits a pending withdrawal and pays it out", async function () {
-    const { withdrawable, beneficiary } =
-      await networkHelpers.loadFixture(deployWithdrawable);
+    const { withdrawable, beneficiary } = await networkHelpers.loadFixture(deployWithdrawable);
     const amount = parseEther("1");
 
     await withdrawable.write.sendValue({ value: amount });
     await viem.assertions.emitWithArgs(
-      withdrawable.write.increasePendingWithdrawal([
-        beneficiary.account.address,
-        amount,
-      ]),
+      withdrawable.write.increasePendingWithdrawal([beneficiary.account.address, amount]),
       withdrawable,
       "PendingWithdrawal",
       [beneficiary.account.address, amount],
     );
-    assert.equal(
-      await withdrawable.read.pendingWithdrawal([beneficiary.account.address]),
-      amount,
-    );
+    assert.equal(await withdrawable.read.pendingWithdrawal([beneficiary.account.address]), amount);
 
     const before = await publicClient.getBalance({
       address: beneficiary.account.address,
@@ -47,9 +40,6 @@ describe("Withdrawable", async function () {
     });
 
     assert.equal(after, before + amount - gas);
-    assert.equal(
-      await withdrawable.read.pendingWithdrawal([beneficiary.account.address]),
-      0n,
-    );
+    assert.equal(await withdrawable.read.pendingWithdrawal([beneficiary.account.address]), 0n);
   });
 });

@@ -25,24 +25,18 @@ describe("CommitQueue", async function () {
     it("gets a, then b, then c", async function () {
       const { queue, a, b, c } = await networkHelpers.loadFixture(enqueueThree);
 
-      await viem.assertions.emitWithArgs(
-        queue.write.dequeue(),
-        queue,
-        "DequeueReturn",
-        [a.account.address, (maturity: bigint) => maturity > 0n],
-      );
-      await viem.assertions.emitWithArgs(
-        queue.write.dequeue(),
-        queue,
-        "DequeueReturn",
-        [b.account.address, (maturity: bigint) => maturity > 0n],
-      );
-      await viem.assertions.emitWithArgs(
-        queue.write.dequeue(),
-        queue,
-        "DequeueReturn",
-        [c.account.address, (maturity: bigint) => maturity > 0n],
-      );
+      await viem.assertions.emitWithArgs(queue.write.dequeue(), queue, "DequeueReturn", [
+        a.account.address,
+        (maturity: bigint) => maturity > 0n,
+      ]);
+      await viem.assertions.emitWithArgs(queue.write.dequeue(), queue, "DequeueReturn", [
+        b.account.address,
+        (maturity: bigint) => maturity > 0n,
+      ]);
+      await viem.assertions.emitWithArgs(queue.write.dequeue(), queue, "DequeueReturn", [
+        c.account.address,
+        (maturity: bigint) => maturity > 0n,
+      ]);
     });
 
     it("is mature after a later block", async function () {

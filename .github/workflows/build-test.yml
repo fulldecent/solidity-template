@@ -45,12 +45,18 @@ jobs:
       - name: Test
         run: npm test
 
+      # The zip name is package.json "name". A project that copies this workflow
+      # keeps its own name and does not edit this step.
+      #
+      # dist/ must contain files only. gh release create refuses a directory, and
+      # the publish job would stop before it creates the tag.
       - name: Build
         run: |
           npm run build
           npx tsc --noEmit
-          mkdir -p dist/contracts
-          cp -R contracts/. dist/contracts/
+          mkdir -p dist
+          name=$(node --input-type=module -e "import {readFileSync} from 'node:fs'; process.stdout.write(JSON.parse(readFileSync('package.json','utf8')).name)")
+          zip -r "dist/${name}.zip" contracts -x '*/.*'
 
       - name: Attest the build
         id: attest

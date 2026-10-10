@@ -13,10 +13,7 @@ describe("LazyArray", async function () {
     return { lazyArray };
   }
 
-  async function popValue(
-    lazyArray: Awaited<ReturnType<typeof deployArray>>["lazyArray"],
-    index: bigint,
-  ) {
+  async function popValue(lazyArray: Awaited<ReturnType<typeof deployArray>>["lazyArray"], index: bigint) {
     const hash = await lazyArray.write.popByIndex([index]);
     const receipt = await publicClient.getTransactionReceipt({ hash });
     const events = parseEventLogs({
@@ -104,11 +101,7 @@ describe("LazyArray", async function () {
     it("throws when initialized twice", async function () {
       const { lazyArray } = await networkHelpers.loadFixture(deployArray);
       await lazyArray.write.initialize([1n]);
-      await viem.assertions.revertWithCustomError(
-        lazyArray.write.initialize([1n]),
-        lazyArray,
-        "AlreadyInitialized",
-      );
+      await viem.assertions.revertWithCustomError(lazyArray.write.initialize([1n]), lazyArray, "AlreadyInitialized");
     });
   });
 });

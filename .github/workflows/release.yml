@@ -9,14 +9,19 @@
 # One-time setup
 #   1. Go to GitHub repo > Settings > General > Releases > Enable release immutability.
 #   2. Go to GitHub repo > Settings > Actions > General > Workflow permissions: Read and write permissions.
+#   3. On that same page, check "Allow GitHub Actions to create and approve pull requests".
 #
 # Public repositories can use attest for free. Private repos require Enterprise Cloud.
 #
-# Check a published file:
+# skip-github-release stops Release Please from creating the tag.
+# The publish job creates the tag with gh release create.
+# Release Please recognizes tags shaped like v1.2.3. A tag shaped like 1.2.3 does not count.
+#
+# Check a published file. NAME.zip is package.json "name".
 #   gh release verify OWNER/REPO v1.2.3
-#   gh attestation verify ./README.md -R OWNER/REPO
-#   gh attestation verify ./README.md -R OWNER/REPO --bundle ./release.sigstore.jsonl
-#   gh attestation verify ./README.md -R OWNER/REPO --bundle ./release.sigstore.jsonl --predicate-type urn:version
+#   gh attestation verify ./NAME.zip -R OWNER/REPO
+#   gh attestation verify ./NAME.zip -R OWNER/REPO --bundle ./release.sigstore.jsonl
+#   gh attestation verify ./NAME.zip -R OWNER/REPO --bundle ./release.sigstore.jsonl --predicate-type urn:version
 
 name: Release
 

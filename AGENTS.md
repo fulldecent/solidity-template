@@ -2,7 +2,7 @@
 
 ## Project layout
 
-```
+```text
 contracts/        Solidity source files
 test/             TypeScript tests (`node:test` + viem)
 hardhat.config.ts

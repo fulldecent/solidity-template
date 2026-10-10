@@ -1,4 +1,4 @@
-# Solidity Template
+# Mutex contract
 
 > [!TIP]
 > This template is a starting point you can use for every Solidity project. We offer:
@@ -21,7 +21,7 @@
 
 **PROJECT STATUS: Technology preview, bug bounty not active.**
 
-Reusable Solidity building blocks: three-officer access control, a lazy array, a commit queue, and a non-transferable ERC-721.
+Mutex contract holds one lock. `lock` acquires it. `unlock` releases it. The call that does not match the current state reverts: `lock` when the lock is already held, and `unlock` when the lock is already released.
 
 > [!NOTE]
 > Replace the project name, description, demonstration and badge URLs with your own. Show what your project does before asking people to read further.
@@ -94,11 +94,18 @@ npm test
 
 ## Usage
 
-1. Click **Use this template** on GitHub to make your own repository, or clone as above.
-2. Put application contracts in `contracts/` and TypeScript tests in `test/`.
-3. Delete contracts you do not need.
-4. Keep `npm test` green.
-5. Deploy and make a GitHub release showing your deployed address.
+The contract starts unlocked.
+
+```solidity
+mutex.lock(); // acquires the lock
+mutex.lock(); // reverts AlreadyLocked
+mutex.unlock(); // releases the lock
+mutex.unlock(); // reverts AlreadyUnlocked
+```
+
+`locked()` returns whether the lock is held.
+
+This repository also includes access-control, data-structure, and token contracts under [contracts/](contracts/). Delete the ones you do not need. Keep `npm test` green, deploy, and make a GitHub release showing the deployed address.
 
 Compile:
 
@@ -120,7 +127,7 @@ npm run coverage
 
 ## Development
 
-Thank you for taking an interest in improving Solidity Template.
+Thank you for taking an interest in improving Mutex contract.
 
 Follow the installation instructions above. Work from the project directory.
 
@@ -141,9 +148,9 @@ Tests live in `test/` and use the Node.js test runner with viem. They talk to a 
 
 Use `fix:`, `feat:` or `BREAKING CHANGE:` in your commit messages. This triggers our bot to make a release draft pull request. Merging that pull request triggers a new tag and GitHub Release.
 
-The [release workflow](.github/workflows/release.yml) uses Release Please's `simple` release type. Set the version in [package.json](package.json) to the proposed release version before merging the release pull request.
+The [release workflow](.github/workflows/release.yml) uses Release Please's `simple` release type with `skip-github-release`. Release Please opens the pull request and writes [CHANGELOG.md](CHANGELOG.md). It does not create the tag. The publish job creates the tag with `gh release create`. The tag looks like `v1.2.3`. A tag shaped like `1.2.3` does not count.
 
-[Build and test](.github/workflows/build-test.yml) installs dependencies, lints and tests the contracts, copies them to `dist/`, then attests and uploads that directory. The release includes the contracts and `release.sigstore.jsonl`, containing build provenance and version attestations.
+[Build and test](.github/workflows/build-test.yml) installs dependencies, lints and tests the contracts, packs them into a zip named from [package.json](package.json) `"name"`, then attests and uploads that zip. The release includes `mutex-contract.zip` and `release.sigstore.jsonl`, containing build provenance and version attestations. The zip is a file because `gh release create` refuses a directory and would stop before creating the tag. The git tag is the version. Release Please's `simple` type does not edit `package.json`.
 
 > [!NOTE]
 > In your GitHub repository settings, under Actions, General, Workflow permissions, select read and write permissions and check "Allow GitHub Actions to create and approve pull requests". Under General, Releases, enable release immutability. Attestations are available for public repositories; private repositories require GitHub Enterprise Cloud.
@@ -163,6 +170,8 @@ The [release workflow](.github/workflows/release.yml) uses Release Please's `sim
 >   -f ref="refs/tags/v0.0.0" \
 >   -f sha="$(gh api repos/{owner}/{repo}/commits/main --jq .sha)"
 > ```
+>
+> A repository created from this template starts with no tags and no releases. Release Please reads the latest tag on the default branch to choose the next version. A repository with no tag gets a first release pull request for 1.0.0. The publish job accepts a tag shaped like `v1.2.3`.
 >
 > `gh release list` and `gh release create` publish the releases this workflow creates after that tag.
 
@@ -215,9 +224,9 @@ The project administrator completes these maintenance tasks each month. If they 
 
 ## Project scope
 
-We are people who write Solidity contracts. This repository is a starting point: toolchain, tests, and a few reusable libraries.
+We are people who write Solidity contracts. Mutex contract does one job: record whether a lock is held, and revert when `lock` or `unlock` asks for the state the contract is already in.
 
-We specifically will not add a frontend, an indexer, or a production token deployment as part of the template itself.
+The repository also carries the toolchain and a few reusable libraries (access control, a lazy array, a commit queue, and a non-transferable ERC-721). We specifically will not add a callback around the lock, a frontend, an indexer, or a production token deployment.
 
 > [!NOTE]
 > Introduce your community, explain what is in scope and say what is out of scope.

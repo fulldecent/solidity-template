@@ -1,6 +1,6 @@
-This bug bounty is a draft and is not active yet.
-
 # Solidity Template Bug Bounty :bug: = :moneybag:
+
+This bug bounty is a draft and is not active yet.
 
 *This documents the Solidity Template bug bounty program and how you can get rewarded for finding problems with this project.*
 
@@ -29,10 +29,10 @@ Social engineering, XKCD#538 attacks, bringing down Ethereum Mainnet/Infura, and
 
 Any found error with these Ethereum contracts is eligible for this bounty program. Of course this includes:
 
-- Any unexpected, dangerous functionality
-- Stealing tokens
-- Priviledge escalation
-- Denial of service (by other than the owner of the contract)
+* Any unexpected, dangerous functionality
+* Stealing tokens
+* Priviledge escalation
+* Denial of service (by other than the owner of the contract)
 
 But also it includes these kinds of problems (excluding copied vendor code):
 
@@ -44,10 +44,10 @@ We are inspired by the Chinese idiom 一字千金.
 
 ## Rules and rewards
 
-- Problems that have already been published here or are already disclosed to sponsors here are not eligible for rewards (a corollary, the sponsors are ineligible for rewards).
-- GitHub Issues is the only way to report problems and request rewards.
-- The lead sponsor has complete and final judgment on the acceptability of bug reports.
-- This program is governed under the laws of the United States, if there is a party that we are unable to pay due to trade embargoes or other restrictions, then we won't pay. But we are happy to cooperate by making alternate arrangements.
+* Problems that have already been published here or are already disclosed to sponsors here are not eligible for rewards (a corollary, the sponsors are ineligible for rewards).
+* GitHub Issues is the only way to report problems and request rewards.
+* The lead sponsor has complete and final judgment on the acceptability of bug reports.
+* This program is governed under the laws of the United States, if there is a party that we are unable to pay due to trade embargoes or other restrictions, then we won't pay. But we are happy to cooperate by making alternate arrangements.
 
 Following is a [risk rating model](https://www.owasp.org/index.php/OWASP_Risk_Rating_Methodology) that judges the severity of a problem based on its likelihood and impact.
 
@@ -59,20 +59,20 @@ Following is a [risk rating model](https://www.owasp.org/index.php/OWASP_Risk_Ra
 
 Rewards:
 
-- **Highest severity (first found)** — SET 
-- **High severity** — partial payout of the bug bounty (USD 5,000)
-- **Medium severity** — partial payout of the bug bounty (USD 1,000)
-- Every accepted problem report will also receive
-  - This limited, first edition Blockchain Community Service Hour T-shirt (ADD LINK), mailed to your house, in time for you to wear at NFT.nyc
-  - One Community Service Hour NFT token from the token drop (pending project definition and launch)
-  - Public acknowledgement from the Community Service Hour Team team and personally from Will on Twitter (if you allow)
+* **Highest severity (first found)** — SET
+* **High severity** — partial payout of the bug bounty (USD 5,000)
+* **Medium severity** — partial payout of the bug bounty (USD 1,000)
+* Every accepted problem report will also receive
+  * This limited, first edition Blockchain Community Service Hour T-shirt (ADD LINK), mailed to your house, in time for you to wear at NFT.nyc
+  * One Community Service Hour NFT token from the token drop (pending project definition and launch)
+  * Public acknowledgement from the Community Service Hour Team team and personally from Will on Twitter (if you allow)
 
 Examples of impact:
 
-- *High impact* — steal an asset/value from someone else, impersonate the ledger owner, marketplace order distributes assets incorrectly
-- *Medium impact* — cause a function to fail or performs a wrong operation
-- *Low impact* — an obvious mistake in the documentation that affects the development process and validity of the applied code
-- *Notable* — typos, missing comments
+* *High impact* — steal an asset/value from someone else, impersonate the ledger owner, marketplace order distributes assets incorrectly
+* *Medium impact* — cause a function to fail or performs a wrong operation
+* *Low impact* — an obvious mistake in the documentation that affects the development process and validity of the applied code
+* *Notable* — typos, missing comments
 
 Examples of likelihood:
 
@@ -83,13 +83,13 @@ Examples of likelihood:
 
 How to win:
 
-- Be descriptive and detailed when reporting your problem,
-- Fix it — recommend a way to solve the problem,
+* Be descriptive and detailed when reporting your problem,
+* Fix it — recommend a way to solve the problem,
 
 Rules for bounty sponsor:
 
-- We will respond quickly to your questions
-- We will adjudicate all prizes quickly
+* We will respond quickly to your questions
+* We will adjudicate all prizes quickly
 
 ## More questions
 
@@ -97,8 +97,8 @@ Rules for bounty sponsor:
 * Will things change during the bounty program?
   * Yes, we will update the code and redeploy the contract. So, click [:star: STAR and :eye: WATCH](https://github.com/AreaWorld/ethereum-contract) above on this repo for updates.
 
-- Taxes?
-  - If you earn so much money that you will need to fill out a tax form, then we will ask you to do so. This program is subject to the laws of Hong Kong.
+* Taxes?
+  * If you earn so much money that you will need to fill out a tax form, then we will ask you to do so. This program is subject to the laws of Hong Kong.
 
 ## Thank you
 
