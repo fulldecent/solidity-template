@@ -236,7 +236,7 @@ The repository also carries the toolchain and a few reusable libraries (access c
 1. We use title case only for proper nouns, including the name of our project.
 2. We recommend to use your package manager to install Node.js because installer sites for Node, nvm, Foundry (`getfoundry.sh`) and similar tools often prefer the unsafe `curl|sh` method. Foundry's own installation page uses `curl -L https://getfoundry.sh/install | bash`; do not run that. See also [rust-lang/rust#163468](https://github.com/rust-lang/rust/issues/163468) and the notes in [fulldecent/rust-template](https://github.com/fulldecent/rust-template).
 3. This project is built based on [best practices documented in solidity-template](https://github.com/fulldecent/solidity-template/).
-4. This project is built based on [best practices documented in project-template](https://github.com/fulldecent/project-template), release v1.3.0.
+4. This project is built based on [best practices documented in project-template](https://github.com/fulldecent/project-template), release v1.4.1.
 5. Tooling follows [Hardhat 3](https://hardhat.org/docs/getting-started) with the [viem toolbox](https://hardhat.org/docs/plugins/hardhat-toolbox-viem).
 6. This project is released under the [Apache License 2.0](LICENSE.md).
 
