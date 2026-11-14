@@ -87,7 +87,23 @@ Open a new PowerShell window so Node is on `PATH`.
 ```sh
 git clone https://github.com/fulldecent/solidity-template.git
 cd solidity-template
+```
+
+Bash and zsh:
+
+```sh
 eval "$(fnm env)"
+```
+
+PowerShell:
+
+```powershell
+fnm env --shell powershell | Out-String | Invoke-Expression
+```
+
+Then:
+
+```sh
 fnm install
 fnm use
 npm ci
