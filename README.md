@@ -166,7 +166,23 @@ npx hardhat build
 npx tsc --noEmit
 ```
 
-`npm run lint:natspec` runs [lintspec](https://github.com/beeb/lintspec) 0.20.0 on `contracts/`. `scripts/lintspec.js` downloads that versioned release archive and checks its checksum.
+`npm run lint:natspec` runs [lintspec](https://github.com/beeb/lintspec) 0.20.0 on `contracts/`. Install rustup from a package manager. [rust-template](https://github.com/fulldecent/rust-template) documents that install. From this directory, rustup installs the toolchain in [rust-toolchain.toml](rust-toolchain.toml) on first use. Then:
+
+```sh
+bin=$(dirname "$(rustup which cargo)")
+PATH="$bin:$PATH" "$bin/cargo" install lintspec --version 0.20.0 --locked
+npm run lint:natspec
+```
+
+PowerShell:
+
+```powershell
+$bin = Split-Path (rustup which cargo)
+$env:PATH = "$bin;$env:PATH"
+& "$bin\cargo.exe" install lintspec --version 0.20.0 --locked
+```
+
+The toolchain directory is first on `PATH` so a `rust-toolchain.toml` inside a dependency does not select another compiler. Cargo installs `lintspec` in `$HOME/.cargo/bin` (`%USERPROFILE%\.cargo\bin` on Windows). Add that directory to `PATH` if it is not already there.
 
 `npm run format` rewrites files. Prettier checks the project except Markdown. `.prettierignore` lists `*.md`, and markdownlint checks those files. Both tools are devDependencies, so the versions in the lockfile are the versions continuous integration runs. Pass paths to check a subset, for example `npm run lint:prettier -- hardhat.config.ts` or `npm run lint:markdown -- README.md`. A directory argument is expanded to the Markdown files under it.
 
@@ -278,7 +294,7 @@ The repository also carries the toolchain and a few reusable libraries (access c
 5. Tooling follows [Hardhat 3](https://hardhat.org/docs/getting-started) with the [viem toolbox](https://hardhat.org/docs/plugins/hardhat-toolbox-viem).
 6. Node.js project practice follows [node.js-template](https://github.com/fulldecent/node.js-template), release v1.2.2. Prettier and markdownlint are devDependencies with package scripts, the approach in [node.js-template issue 5](https://github.com/fulldecent/node.js-template/issues/5). That change is not in v1.2.2. It is pull request [fulldecent/node.js-template#6](https://github.com/fulldecent/node.js-template/pull/6).
 7. Static analysis uses [Slither](https://github.com/crytic/slither) 0.11.6, installed with [uv](https://github.com/astral-sh/uv) 0.13.8.
-8. NatSpec is checked with [lintspec](https://github.com/beeb/lintspec) 0.20.0.
+8. NatSpec is checked with [lintspec](https://github.com/beeb/lintspec) 0.20.0, installed with cargo from rustup. The toolchain file follows [rust-template](https://github.com/fulldecent/rust-template), release 1.1.0.
 9. This project is released under the [Apache License 2.0](LICENSE.md).
 
 > [!NOTE]

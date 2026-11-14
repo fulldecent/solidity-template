@@ -34,5 +34,13 @@ jobs:
       - name: Check Markdown (markdownlint)
         run: npm run lint:markdown
 
+      - name: Set up Rust
+        run: rustup show
+
+      - name: Install lintspec
+        run: |
+          bin=$(dirname "$(rustup which cargo)")
+          PATH="$bin:$PATH" "$bin/cargo" install lintspec --version 0.20.0 --locked
+
       - name: Check NatSpec (lintspec)
         run: npm run lint:natspec
