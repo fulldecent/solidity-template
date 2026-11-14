@@ -19,15 +19,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v7
 
-      - name: Setup Node.js (tool runtime)
+      - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
           node-version-file: .node-version
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Check formatting (Prettier)
-        # Command fails if any files do not meet the formatting rules.
-        run: npx prettier@latest --check .
+        run: npm run lint:prettier
 
       - name: Check Markdown (markdownlint)
-        # Command fails if any markdown files do not meet the linting rules.
-        run: npx markdownlint-cli@latest "**/*.md"
+        run: npm run lint:markdown
