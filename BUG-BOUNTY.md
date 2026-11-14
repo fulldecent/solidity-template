@@ -6,66 +6,67 @@ This bug bounty is a draft and is not active yet.
 
 :star: No programming experience is required.
 
-:rainbow: There are entirely new concepts in here including a randomized commit-reveal NFT drop mechanism, ghost minting and reusable smart contract data structures & libraries. All this is open sourced and by reading along you may find ideas & code to steal for your next project.
-
 ## Sponsors
+
+Sponsor this bug bounty if you support Solidity Template. This means you will commit to paying researchers that demonstrate a problem. [Contact us](https://x.com/intent/tweet?text=%40fulldecent%20) if interested. Thank you.
 
 This bug bounty is sponsored by:
 
 * William Entriken
-* // ADD YOUR NAME HERE //
+* (Con)
 
-The total bounty value is over USD XX,XXX.
+The total cumulative bounty value is limited to USD ???.
 
 ## Scope of this bounty program
 
-Help us find any problems with the Solidity Template smart contracts. Any reports and suggestions for code, operations, and style improvement will be appreciated and taken into consideration.
+We appreciate all suggestions for code, operations and style improvement, and will take them into consideration.
 
-All source code that is deployable (i.e. all Solidity files not in the Mocks folder) are in scope. The documentation, mocks and JavaScript tests are there to help you but are not in scope for the bounty program.
+All source code that is deployable (i.e. all Solidity files not in the Mocks folder), for the latest released version, are **in scope**. Everything else is there to help you but is **out of scope** for the bounty program.
 
-Social engineering, XKCD#538 attacks, bringing down Ethereum Mainnet/Infura, and other problems outside of the deployable contracts are not in scope.
+Social engineering, XKCD#538 attacks, bringing down Ethereum Mainnet/Infura, and other problems outside of the deployable contracts are **out of scope**.
+
+Using a version of Solidity older than the latest version ([they don't support it](https://github.com/argotorg/solidity/security#supported-versions)) or other dependencies which their vendors no longer support is **out of scope**.
 
 ## Sensitivity
 
-Any found error with these Ethereum contracts is eligible for this bounty program. Of course this includes:
+For all **in scope** items, the following items count:
 
 * Any unexpected, dangerous functionality
 * Stealing tokens
-* Priviledge escalation
-* Denial of service (by other than the owner of the contract)
+* Privilege escalation
+* Denial of service (by other than the owner of the contract and explicitly permitted entities)
 
-But also it includes these kinds of problems (excluding copied vendor code):
+Additionally, for all **in scope** items excluding copied vendor code, the following items count:
 
 * Typos
-* Violations of the Solidity style guide (except line length limit)
+* Violations of the Solidity style guide, as [amended by our README](./README.md#style-guide)
 * Inconsistent usage of whitespace
 
 We are inspired by the Chinese idiom 一字千金.
 
 ## Rules and rewards
 
-* Problems that have already been published here or are already disclosed to sponsors here are not eligible for rewards (a corollary, the sponsors are ineligible for rewards).
+* Problems that have already been published here or are already disclosed to sponsors here are not eligible for rewards (a corollary: the sponsors are ineligible for rewards).
 * GitHub Issues is the only way to report problems and request rewards.
-* The lead sponsor has complete and final judgment on the acceptability of bug reports.
+* The lead sponsor has complete and final judgment on the acceptability of reports.
 * This program is governed under the laws of the United States, if there is a party that we are unable to pay due to trade embargoes or other restrictions, then we won't pay. But we are happy to cooperate by making alternate arrangements.
 
-Following is a [risk rating model](https://www.owasp.org/index.php/OWASP_Risk_Rating_Methodology) that judges the severity of a problem based on its likelihood and impact.
+Following is a [risk rating model](https://community.owasp.org/OWASP_Risk_Rating_Methodology) that judges the severity of a problem based on its likelihood and impact.
 
-|                 | LOW LIKELIHOOD  | :left_right_arrow: | HIGH LIKELIHOOD  |
-| --------------- | --------------- | ------------------ | ---------------- |
-| **HIGH IMPACT** | Medium severity | High severity      | Highest severity |
-| :arrow_up_down: | Low severity    | Medium severity    | High severity    |
-| **LOW IMPACT**  | *Notable*       | Low severity       | Medium severity  |
+|               | Low likelihood  | Medium likelihood | High likelihood  |
+| ------------- | --------------- | ----------------- | ---------------- |
+| High impact   | Medium severity | High severity     | Highest severity |
+| Medium impact | Low severity    | Medium severity   | High severity    |
+| Low impact    | *Notable*       | Low severity      | Medium severity  |
 
 Rewards:
 
-* **Highest severity (first found)** — SET
-* **High severity** — partial payout of the bug bounty (USD 5,000)
-* **Medium severity** — partial payout of the bug bounty (USD 1,000)
+* **Highest severity** — USD ???
+* **High severity** — USD ???
+* **Medium severity** — USD ???
+* Low severity and notable — no cash payout
 * Every accepted problem report will also receive
-  * This limited, first edition Blockchain Community Service Hour T-shirt (ADD LINK), mailed to your house, in time for you to wear at NFT.nyc
-  * One Community Service Hour NFT token from the token drop (pending project definition and launch)
-  * Public acknowledgement from the Community Service Hour Team team and personally from Will on Twitter (if you allow)
+  * ??? Public acknowledgement from the Community Service Hour team and personally from Will on X
 
 Examples of impact:
 
@@ -83,8 +84,8 @@ Examples of likelihood:
 
 How to win:
 
-* Be descriptive and detailed when reporting your problem,
-* Fix it — recommend a way to solve the problem,
+* Be descriptive and detailed when reporting your problem
+* Fix it — recommend a way to solve the problem
 
 Rules for bounty sponsor:
 
@@ -93,15 +94,13 @@ Rules for bounty sponsor:
 
 ## More questions
 
-* If you prefer to reach us privately, please contact: support @ area.world. You are welcome to make a hashed bug report (set issue body to hash of your message). This will still be eligible for payment and recognition.
 * Will things change during the bounty program?
-  * Yes, we will update the code and redeploy the contract. So, click [:star: STAR and :eye: WATCH](https://github.com/AreaWorld/ethereum-contract) above on this repo for updates.
-
+  * Yes, we will update the code and redeploy the contract. So, click [:star: STAR and :eye: WATCH](https://github.com/fulldecent/solidity-template) above on this repo for updates.
 * Taxes?
-  * If you earn so much money that you will need to fill out a tax form, then we will ask you to do so. This program is subject to the laws of Hong Kong.
+  * If you earn so much money that applicable law requires you to complete a tax form, then we will ask you to do so.
 
 ## Thank you
 
-Thank you for your interest in Solidity Template, for reading to the end of this file and for reading my code. Even if you don't find any problems, I'd love to hear your thoughts. Please hit up @fulldecent on Twitter or reach out other ways. See you at NFT.nyc.
+Thank you for your interest in Solidity Template, for reading to the end of this file and for reading our code. Even if you don't find any problems, I'd love to hear your thoughts.
 
-William Entriken / 2021-12-20
+William Entriken / [@fulldecent](https://x.com/intent/tweet?text=%40fulldecent%20)
