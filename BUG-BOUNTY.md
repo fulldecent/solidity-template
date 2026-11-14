@@ -91,7 +91,7 @@ Rules for bounty sponsor:
 * We will respond quickly to your questions
 * We will adjudicate all prizes quickly
 
-#### More questions
+## More questions
 
 * Are you recommending [*full disclosure*](https://en.wikipedia.org/wiki/Full_disclosure_(computer_security)) as a best practice?
   * Yes. [Well known losses](https://github.com/ethereum/EIPs/issues/223) due to problems with ERC-20 have exceeded [hundreds of millions USD](https://github.com/ethereum/EIPs/issues/223). The best defense we can offer to the community is to be transparent when issues come. Following are two references on this topic to explore further.
