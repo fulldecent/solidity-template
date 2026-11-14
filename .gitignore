@@ -17,6 +17,9 @@
 /cache
 /coverage
 
+# uv
+.venv
+
 # OS and editor
 .idea
 *.swp
