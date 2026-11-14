@@ -1,6 +1,6 @@
-# Solidity Template Bug Bounty :bug: = :moneybag:
+# Solidity Template bug bounty :bug: = :moneybag:
 
-This bug bounty is a draft and is not active yet.
+This bounty program is a draft and is not active yet. Replace "???" items before going active.
 
 *This documents the Solidity Template bug bounty program and how you can get rewarded for finding problems with this project.*
 
@@ -8,20 +8,19 @@ This bug bounty is a draft and is not active yet.
 
 ## Sponsors
 
-Sponsor this bug bounty if you support Solidity Template. This means you will commit to paying researchers that demonstrate a problem. [Contact us](https://x.com/intent/tweet?text=%40fulldecent%20) if interested. Thank you.
+Sponsor this bounty program if you support Solidity Template. This means you will commit to paying researchers with new eligible findings. [Contact us](https://x.com/intent/tweet?text=%40fulldecent%20) if interested. Thank you.
 
-This bug bounty is sponsored by:
+This bounty program is sponsored by:
 
 * William Entriken
-* (Con)
 
-The total cumulative bounty value is limited to USD ???.
+The total cumulative payout is limited to USD ???.
 
-## Scope of this bounty program
+## Scope
 
 We appreciate all suggestions for code, operations and style improvement, and will take them into consideration.
 
-All source code that is deployable (i.e. all Solidity files not in the Mocks folder), for the latest released version, are **in scope**. Everything else is there to help you but is **out of scope** for the bounty program.
+All deployable source code (i.e. Solidity files not in the Mocks folder), for the latest released version, are **in scope** for the bounty program. Everything else is **out of scope** but may be helpful to you.
 
 Social engineering, XKCD#538 attacks, bringing down Ethereum Mainnet/Infura, and other problems outside of the deployable contracts are **out of scope**.
 
@@ -29,14 +28,14 @@ Using a version of Solidity older than the latest version ([they don't support i
 
 ## Sensitivity
 
-For all **in scope** items, the following items count:
+For all **in scope** items, the following items can be **eligible findings**:
 
 * Any unexpected, dangerous functionality
 * Stealing tokens
 * Privilege escalation
 * Denial of service (by other than the owner of the contract and explicitly permitted entities)
 
-Additionally, for all **in scope** items excluding copied vendor code, the following items count:
+Additionally, for all **in scope** items other than copied vendor code, the following items can be **eligible findings**:
 
 * Typos
 * Violations of the Solidity style guide, as [amended by our README](./README.md#style-guide)
@@ -46,12 +45,12 @@ We are inspired by the Chinese idiom 一字千金.
 
 ## Rules and rewards
 
-* Problems that have already been published here or are already disclosed to sponsors here are not eligible for rewards (a corollary: the sponsors are ineligible for rewards).
-* GitHub Issues is the only way to report problems and request rewards.
-* The lead sponsor has complete and final judgment on the acceptability of reports.
-* This program is governed under the laws of the United States, if there is a party that we are unable to pay due to trade embargoes or other restrictions, then we won't pay. But we are happy to cooperate by making alternate arrangements.
+* Findings that have previously been published as issues or pull requests to this project, or are already disclosed to sponsors, are not eligible for rewards (a corollary: the sponsors are ineligible for rewards).
+* Our GitHub Issues is the only way to report problems and request rewards.
+* The lead sponsor has complete and final judgment on the eligibility and scoring of findings.
+* This program is governed under the laws of the United States, if there is a party that we are unable to pay due to trade embargoes or other restrictions, then we won't pay. But we are happy to discuss alternate arrangements.
 
-Following is a [risk rating model](https://community.owasp.org/OWASP_Risk_Rating_Methodology) that judges the severity of a problem based on its likelihood and impact.
+We classify findings into severity based on likelihood and impact. We are inspired by the [OWASP risk rating](https://community.owasp.org/OWASP_Risk_Rating_Methodology) model.
 
 |               | Low likelihood  | Medium likelihood | High likelihood  |
 | ------------- | --------------- | ----------------- | ---------------- |
@@ -92,8 +91,14 @@ Rules for bounty sponsor:
 * We will respond quickly to your questions
 * We will adjudicate all prizes quickly
 
-## More questions
+#### More questions
 
+* Are you recommending [*full disclosure*](https://en.wikipedia.org/wiki/Full_disclosure_(computer_security)) as a best practice?
+  * Yes. [Well known losses](https://github.com/ethereum/EIPs/issues/223) due to problems with ERC-20 have exceeded [hundreds of millions USD](https://github.com/ethereum/EIPs/issues/223). The best defense we can offer to the community is to be transparent when issues come. Following are two references on this topic to explore further.
+  * Schneier, Bruce. ["Damned Good Idea"](https://www.schneier.com/essay-146.html). CSO Online. Retrieved 29 April 2013.
+  * Heiser, Jay (January 2001). ["Exposing Infosecurity Hype"](https://web.archive.org/web/20060328012516/http://infosecuritymag.techtarget.com/articles/january01/columns_curmudgeons_corner.shtml). *Information Security Mag*. TechTarget. Archived from [the original](http://infosecuritymag.techtarget.com/articles/january01/columns_curmudgeons_corner.shtml) on 28 March 2006. Retrieved 29 April 2013.
+  * [:star: Star this repo](https://github.com/fulldecent/solidity-template) if you are using this code. Surely you would want to know of any bugs as soon as possible.
+  * If you prefer to send us a bug report privately so that a fix can be developed concurrently with the announcement you are welcome to try. You will need to contact the sponsors using mutually trusted contacts as we do not publish direct contact information. Direct outreach to sponsors by new contacts regarding this will not be accepted.
 * Will things change during the bounty program?
   * Yes, we will update the code and redeploy the contract. So, click [:star: STAR and :eye: WATCH](https://github.com/fulldecent/solidity-template) above on this repo for updates.
 * Taxes?
