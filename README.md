@@ -28,10 +28,10 @@ Mutex contract holds one lock. `lock` acquires it. `unlock` releases it. The cal
 
 ## Installation
 
-You will need Git and Node.js 22.13 or later (the current Hardhat 3 requirement).
+You will need Git, fnm, and Node.js 26, the only version this repository supports. That version is recorded in [.node-version](.node-version). Node.js 26 is the current Active LTS. Installation follows the fnm and `.node-version` practice in [node.js-template](https://github.com/fulldecent/node.js-template).
 
 > [!WARNING]
-> Install Node.js with your operating system package manager. That is safer than installer pages that tell you to pipe `curl` into a shell ([ref](#references)).
+> fnm is a Node.js version manager, which installs `node` at the version we specify in [.node-version](.node-version). We recommend to install fnm using your package manager as this is safer than the advice on the fnm and nvm websites ([ref](#references)).
 
 ```sh
 node --version
@@ -46,16 +46,16 @@ On Ubuntu 22.04+ or Debian 12+:
 
 ```sh
 sudo apt update
-sudo apt install git nodejs npm
+sudo apt install git
 ```
 
 On Fedora:
 
 ```sh
-sudo dnf install git nodejs npm
+sudo dnf install git
 ```
 
-Confirm `node --version` is 22.13 or later. If your distribution ships an older Node, use its documented Node 22 packages (for example NodeSource packages you install with `apt`, not a `curl | sh` bootstrap).
+If your distribution has no `fnm` package, [other fnm installation methods](https://github.com/Schniz/fnm) are available, but beware as that page does also recommend some dangerous methods ([ref](#references)).
 
 ### macOS
 
@@ -68,14 +68,16 @@ xcode-select --install
 With Homebrew installed:
 
 ```sh
-brew install git node
+brew install git fnm
 ```
+
+Homebrew's `node` formula is a standalone runtime. It does not honor [.node-version](.node-version). Use `fnm` instead.
 
 ### Windows
 
 ```sh
 winget install --exact --id Git.Git
-winget install --exact --id OpenJS.NodeJS.LTS
+winget install --exact --id Schniz.fnm
 ```
 
 Open a new PowerShell window so Node is on `PATH`.
@@ -85,6 +87,25 @@ Open a new PowerShell window so Node is on `PATH`.
 ```sh
 git clone https://github.com/fulldecent/solidity-template.git
 cd solidity-template
+```
+
+Bash and zsh:
+
+```sh
+eval "$(fnm env)"
+```
+
+PowerShell:
+
+```powershell
+fnm env --shell powershell | Out-String | Invoke-Expression
+```
+
+Then:
+
+```sh
+fnm install
+fnm use
 npm ci
 npm test
 ```
@@ -234,7 +255,7 @@ The repository also carries the toolchain and a few reusable libraries (access c
 ## References
 
 1. We use title case only for proper nouns, including the name of our project.
-2. We recommend to use your package manager to install Node.js because installer sites for Node, nvm, Foundry (`getfoundry.sh`) and similar tools often prefer the unsafe `curl|sh` method. Foundry's own installation page uses `curl -L https://getfoundry.sh/install | bash`; do not run that. See also [rust-lang/rust#163468](https://github.com/rust-lang/rust/issues/163468) and the notes in [fulldecent/rust-template](https://github.com/fulldecent/rust-template).
+2. We recommend to use your package manager to install fnm because the fnm and nvm websites prefer the unsafe `curl|sh` method ([fnm issue](https://github.com/Schniz/fnm/issues/1588)). The same warning applies to Foundry (`getfoundry.sh`) and to rustup. See [rust-lang/rust#163468](https://github.com/rust-lang/rust/issues/163468) and [fulldecent/rust-template](https://github.com/fulldecent/rust-template).
 3. This project is built based on [best practices documented in solidity-template](https://github.com/fulldecent/solidity-template/).
 4. This project is built based on [best practices documented in project-template](https://github.com/fulldecent/project-template), release v1.4.1.
 5. Tooling follows [Hardhat 3](https://hardhat.org/docs/getting-started) with the [viem toolbox](https://hardhat.org/docs/plugins/hardhat-toolbox-viem).
