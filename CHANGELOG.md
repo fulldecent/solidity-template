@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/fulldecent/solidity-template/compare/v1.1.0...v1.2.0) (2026-11-14)
+
+
+### Features
+
+* report gas on every test run ([#22](https://github.com/fulldecent/solidity-template/issues/22)) ([65e0f01](https://github.com/fulldecent/solidity-template/commit/65e0f01c3a729575ea1922c9989e869e39e411ac))
+
 ## [1.1.0](https://github.com/fulldecent/solidity-template/compare/v1.0.0...v1.1.0) (2026-11-14)
 
 
