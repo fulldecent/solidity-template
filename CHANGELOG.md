@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/fulldecent/solidity-template/compare/v1.0.0...v1.1.0) (2026-11-14)
+
+
+### Features
+
+* analyze contracts with Slither ([#20](https://github.com/fulldecent/solidity-template/issues/20)) ([09b02f2](https://github.com/fulldecent/solidity-template/commit/09b02f27705b66c4c5d68c25fb0c007a05f5a5ac))
+
 ## 1.0.0 (2026-10-10)
 
 
