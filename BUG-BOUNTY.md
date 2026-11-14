@@ -98,11 +98,11 @@ Rules for bounty sponsor:
   * Schneier, Bruce. ["Damned Good Idea"](https://www.schneier.com/essay-146.html). CSO Online. Retrieved 29 April 2013.
   * Heiser, Jay (January 2001). ["Exposing Infosecurity Hype"](https://web.archive.org/web/20060328012516/http://infosecuritymag.techtarget.com/articles/january01/columns_curmudgeons_corner.shtml). *Information Security Mag*. TechTarget. Archived from [the original](http://infosecuritymag.techtarget.com/articles/january01/columns_curmudgeons_corner.shtml) on 28 March 2006. Retrieved 29 April 2013.
   * [:star: Star this repo](https://github.com/fulldecent/solidity-template) if you are using this code. Surely you would want to know of any bugs as soon as possible.
-  * If you prefer to send us a bug report privately so that a fix can be developed concurrently with the announcement you are welcome to try. You will need to contact the sponsors using mutually trusted contacts as we do not publish direct contact information. Direct outreach to sponsors by new contacts regarding this will not be accepted.
+  * If you prefer to send a bug report privately so that a fix can be developed concurrently with the announcement, contact the sponsors through mutually trusted contacts, IYKYK. This project does not publish direct contact information. Direct outreach to sponsors by new contacts will not be accepted.
 * Will things change during the bounty program?
   * Yes, we will update the code and redeploy the contract. So, click [:star: STAR and :eye: WATCH](https://github.com/fulldecent/solidity-template) above on this repo for updates.
 * Taxes?
-  * If you earn so much money that applicable law requires you to complete a tax form, then we will ask you to do so.
+  * If you earn so much money that applicable law requires you to complete a tax form, then we will ask you to do so. This whole program is subject to the laws of the United States.
 
 ## Thank you
 
