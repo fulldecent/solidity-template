@@ -15,7 +15,8 @@
     "lint:markdown": "node scripts/lint-format.js lint:markdown",
     "format": "node scripts/lint-format.js format",
     "format:prettier": "node scripts/lint-format.js format:prettier",
-    "format:markdown": "node scripts/lint-format.js format:markdown"
+    "format:markdown": "node scripts/lint-format.js format:markdown",
+    "slither": "uv run slither . --fail-high"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-ignition": "^3.1.10",

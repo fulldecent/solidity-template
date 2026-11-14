@@ -45,6 +45,17 @@ jobs:
       - name: Test
         run: npm test
 
+      - name: Install uv
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: "0.13.8"
+          python-version: "3.12"
+
+      - name: Analyze contracts
+        run: |
+          uv sync --frozen
+          uv run slither . --fail-high
+
       # The zip name is package.json "name". A project that copies this workflow
       # keeps its own name and does not edit this step.
       #
