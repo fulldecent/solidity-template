@@ -7,7 +7,7 @@ pragma solidity ^0.8.14; // code below expects that integer overflows will rever
 ///         withdraw.
 /// @author William Entriken
 contract Withdrawable {
-    /// @notice Ether waiting for beneficiaries to withdraw
+    /// @dev amount of Ether waiting for each beneficiary to withdraw
     mapping(address => uint256) private _pendingWithdrawals;
 
     /// @notice Amount of Ether waiting for beneficiaries to withdraw is updated

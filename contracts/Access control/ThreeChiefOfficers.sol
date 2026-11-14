@@ -9,25 +9,25 @@ pragma solidity ^0.8.14;
 ///          - Modify your functionss with `onlyOperatingOfficer` to restrict access as needed.
 /// @author William Entriken (https://phor.net) from Solidity-Template
 abstract contract ThreeChiefOfficers {
-    /// @notice The account that can only reassign officer accounts
+    /// @dev the account that can only reassign officer accounts
     address private _executiveOfficer;
 
-    /// @notice The account that can perform priviledged actions
+    /// @dev the account that can perform privileged actions
     address private _operatingOfficer;
 
-    /// @notice The account that can collect Ether from this contract
+    /// @dev the account that can collect Ether from this contract
     address payable private _financialOfficer;
 
-    /// @dev Revert with an error when attempting privileged access without being executive officer.
+    /// @notice Caller is not the executive officer
     error NotExecutiveOfficer();
 
-    /// @dev Revert with an error when attempting privileged access without being operating officer.
+    /// @notice Caller is not the operating officer
     error NotOperatingOfficer();
 
-    /// @dev Revert with an error when attempting privileged access without being financial officer.
+    /// @notice Caller is not the financial officer
     error NotFinancialOfficer();
 
-    /// @dev This throws unless called by the owner.
+    /// @notice Restrict the caller to the operating officer
     modifier onlyOperatingOfficer() {
         if (msg.sender != _operatingOfficer) {
             revert NotOperatingOfficer();

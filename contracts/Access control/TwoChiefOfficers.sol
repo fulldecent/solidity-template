@@ -9,13 +9,13 @@ pragma solidity ^0.8.14;
 ///          - Modify your functionss with `onlyOperatingOfficer` to restrict access as needed.
 /// @author William Entriken (https://phor.net)
 abstract contract TwoChiefOfficers {
-    /// @notice The account that can only reassign officer accounts
+    /// @dev the account that can only reassign officer accounts
     address private _executiveOfficer;
 
-    /// @notice The account that can perform priviledged actions
+    /// @dev the account that can perform privileged actions
     address private _operatingOfficer;
 
-    /// @dev This throws unless called by the owner.
+    /// @notice Restrict the caller to the operating officer
     modifier onlyOperatingOfficer() {
         require(msg.sender == _operatingOfficer, "TwoChiefOfficers: only the operating officer may do that");
         _;

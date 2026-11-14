@@ -20,7 +20,10 @@ import "./IERC165.sol";
  */
 abstract contract ERC165 is IERC165 {
     /**
+     * @notice Query whether this contract implements an interface
      * @dev See {IERC165-supportsInterface}.
+     * @param interfaceId the interface identifier, as specified in ERC-165
+     * @return true when the interface is supported
      */
     function supportsInterface(bytes4 interfaceId) public view virtual override returns (bool) {
         return interfaceId == type(IERC165).interfaceId;

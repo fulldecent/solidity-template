@@ -5,19 +5,29 @@ pragma solidity ^0.8.0;
 ///         tokens, KYC tokens, access list tokens, proof of X tokens.
 /// @dev    See https://eips.ethereum.org/EIPS/eip-721
 abstract contract NonTransferrableERC721 {
+    /// @notice Ownership was assigned
     /// @param from Always zero because this is a non-transferrable token.
     /// @param to   The address of the new owner of the NFT
     /// @param id   The NFT's ID
     event Transfer(address indexed from, address indexed to, uint256 indexed id);
 
+    /// @notice The token name
+    /// @return the token name
     string public name;
 
+    /// @notice The token symbol
+    /// @return the token symbol
     string public symbol;
 
+    /// @notice The URI of a token
+    /// @param id the NFT's ID
+    /// @return the token URI
     function tokenURI(uint256 id) public view virtual returns (string memory);
 
+    /// @notice Owner of each token
     mapping(uint256 => address) internal _ownerOf;
 
+    /// @notice Token count of each account
     mapping(address => uint256) internal _balanceOf;
 
     /// @notice Find the owner of an NFT

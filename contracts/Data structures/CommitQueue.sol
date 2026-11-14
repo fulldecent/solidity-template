@@ -4,6 +4,7 @@ pragma solidity ^0.8.14; // code below expects that integer overflows will rever
 /// @title  A multi-queue data structure for commits that are waiting to be revealed
 /// @author William Entriken, for Area NFT
 library CommitQueue {
+    /// @notice Commitments waiting to be revealed
     struct Self {
         // Storage of all elements
         mapping(uint256 => Element) elements;
@@ -18,6 +19,7 @@ library CommitQueue {
         uint256 length;
     }
 
+    /// @notice One commitment and how many times it is queued
     struct Element {
         // These sizes are chosen to fit in one EVM word
         address beneficiary;

@@ -12,6 +12,7 @@ contract Mutex {
     /// @notice The lock is already released
     error AlreadyUnlocked();
 
+    /// @dev whether the lock is held
     bool private _locked;
 
     /// @notice The lock was acquired

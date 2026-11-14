@@ -6,10 +6,13 @@ pragma solidity ^0.8.0;
  * @dev String operations.
  */
 library Strings {
+    /// @dev hexadecimal digit characters
     bytes16 private constant _HEX_SYMBOLS = "0123456789abcdef";
 
     /**
-     * @dev Converts a `uint256` to its ASCII `string` decimal representation.
+     * @notice Convert an integer to its decimal string
+     * @param value the integer
+     * @return the decimal representation
      */
     function toString(uint256 value) internal pure returns (string memory) {
         // Inspired by OraclizeAPI's implementation - MIT licence
@@ -34,7 +37,9 @@ library Strings {
     }
 
     /**
-     * @dev Converts a `uint256` to its ASCII `string` hexadecimal representation.
+     * @notice Convert an integer to its hexadecimal string
+     * @param value the integer
+     * @return the hexadecimal representation, prefixed with 0x
      */
     function toHexString(uint256 value) internal pure returns (string memory) {
         if (value == 0) {
@@ -50,7 +55,10 @@ library Strings {
     }
 
     /**
-     * @dev Converts a `uint256` to its ASCII `string` hexadecimal representation with fixed length.
+     * @notice Convert an integer to a hexadecimal string of fixed length
+     * @param value the integer
+     * @param length the number of bytes
+     * @return the hexadecimal representation, prefixed with 0x
      */
     function toHexString(uint256 value, uint256 length) internal pure returns (string memory) {
         bytes memory buffer = new bytes(2 * length + 2);

@@ -5,6 +5,7 @@ pragma solidity ^0.8.14; // code below expects that integer overflows will rever
 ///         [1, N]
 /// @author William Entriken, for Area NFT
 library LazyArray {
+    /// @notice Sparse array that initializes to the range [1, N]
     struct Self {
         // This stores element values and cannot represent an underlying value of zero.
         //
