@@ -159,11 +159,14 @@ GitHub Actions runs [checks](.github/workflows) on pushes to `main` and pull req
 ```sh
 npm test
 npm run lint
+npm run lint:natspec
 npm run lint:prettier
 npm run lint:markdown
 npx hardhat build
 npx tsc --noEmit
 ```
+
+`npm run lint:natspec` runs [lintspec](https://github.com/beeb/lintspec) 0.20.0 on `contracts/`. `scripts/lintspec.js` downloads that versioned release archive and checks its checksum.
 
 `npm run format` rewrites files. Prettier checks the project except Markdown. `.prettierignore` lists `*.md`, and markdownlint checks those files. Both tools are devDependencies, so the versions in the lockfile are the versions continuous integration runs. Pass paths to check a subset, for example `npm run lint:prettier -- hardhat.config.ts` or `npm run lint:markdown -- README.md`. A directory argument is expanded to the Markdown files under it.
 
@@ -224,6 +227,7 @@ Local conventions in this project include:
 We recognize the following as best practice for all Solidity development:
 
 - Fully annotate public ABI with [NatSpec](https://docs.soliditylang.org/en/latest/natspec-format.html), using the `///` flavor.
+- Private state variables use `@dev`, not `@notice`.
 - Align whitespace for tags, then params:
 
   ```solidity
@@ -274,7 +278,8 @@ The repository also carries the toolchain and a few reusable libraries (access c
 5. Tooling follows [Hardhat 3](https://hardhat.org/docs/getting-started) with the [viem toolbox](https://hardhat.org/docs/plugins/hardhat-toolbox-viem).
 6. Node.js project practice follows [node.js-template](https://github.com/fulldecent/node.js-template), release v1.2.2. Prettier and markdownlint are devDependencies with package scripts, the approach in [node.js-template issue 5](https://github.com/fulldecent/node.js-template/issues/5). That change is not in v1.2.2. It is pull request [fulldecent/node.js-template#6](https://github.com/fulldecent/node.js-template/pull/6).
 7. Static analysis uses [Slither](https://github.com/crytic/slither) 0.11.6, installed with [uv](https://github.com/astral-sh/uv) 0.13.8.
-8. This project is released under the [Apache License 2.0](LICENSE.md).
+8. NatSpec is checked with [lintspec](https://github.com/beeb/lintspec) 0.20.0.
+9. This project is released under the [Apache License 2.0](LICENSE.md).
 
 > [!NOTE]
 > Carefully consider which license to apply to your project. Cite external sources that materially informed your decisions, including the release of this Solidity template you used.

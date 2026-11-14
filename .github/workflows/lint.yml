@@ -33,3 +33,6 @@ jobs:
 
       - name: Check Markdown (markdownlint)
         run: npm run lint:markdown
+
+      - name: Check NatSpec (lintspec)
+        run: npm run lint:natspec
