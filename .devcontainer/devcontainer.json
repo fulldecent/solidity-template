@@ -1,6 +1,7 @@
 {
-  "name": "Node.js",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+  "name": "Node.js 26",
+  // The image major must match .node-version. This repository supports Node.js 26 only.
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:26",
   "customizations": {
     "vscode": {
       "extensions": ["NomicFoundation.hardhat-solidity"]
