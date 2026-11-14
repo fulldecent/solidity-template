@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.14;
+pragma solidity ^0.8.38;
 
 /// @title  Three-party access control inspired by CryptoKitties. By default, the highest-privileged account will be the
 ///         same account that deploys this contract.

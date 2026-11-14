@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.38;
 
 /// @notice This implementation of ERC-721 that does not allow tokens to be transferred. Also known as badges, soulbound
 ///         tokens, KYC tokens, access list tokens, proof of X tokens.

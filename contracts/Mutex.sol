@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
-pragma solidity ^0.8.14;
+pragma solidity ^0.8.38;
 
 /// @title  Mutex contract
 /// @notice A lock that records whether it is held

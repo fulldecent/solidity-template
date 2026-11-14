@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
-pragma solidity ^0.8.14; // code below expects that integer overflows will revert
+pragma solidity ^0.8.38; // code below expects that integer overflows will revert
 
 /// @title  A data structure that supports random read and delete access and that efficiently initializes to a range of
 ///         [1, N]
