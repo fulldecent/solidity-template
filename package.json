@@ -10,13 +10,20 @@
     "build": "hardhat build",
     "test": "hardhat test nodejs",
     "coverage": "hardhat test nodejs --coverage",
-    "lint": "solhint \"contracts/**/*.sol\""
+    "lint": "solhint \"contracts/**/*.sol\"",
+    "lint:prettier": "node scripts/lint-format.js lint:prettier",
+    "lint:markdown": "node scripts/lint-format.js lint:markdown",
+    "format": "node scripts/lint-format.js format",
+    "format:prettier": "node scripts/lint-format.js format:prettier",
+    "format:markdown": "node scripts/lint-format.js format:markdown"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-ignition": "^3.1.10",
     "@nomicfoundation/hardhat-toolbox-viem": "^5.0.7",
     "@types/node": "^26.6.6",
     "hardhat": "^3.22.0",
+    "markdownlint-cli": "^0.50.0",
+    "prettier": "^3.10.1",
     "solhint": "^6.2.5",
     "typescript": "~7.0.2",
     "viem": "^2.57.19"
