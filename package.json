@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "hardhat build",
-    "test": "hardhat test nodejs",
+    "test": "hardhat test nodejs --gas-stats",
     "coverage": "hardhat test nodejs --coverage",
     "lint": "solhint \"contracts/**/*.sol\"",
     "lint:prettier": "node scripts/lint-format.js lint:prettier",
