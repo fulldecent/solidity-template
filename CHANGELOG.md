@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.3.0](https://github.com/fulldecent/solidity-template/compare/v1.2.0...v1.3.0) (2026-11-19)
+
+
+### Features
+
+* clean up bounty program ([9d93f04](https://github.com/fulldecent/solidity-template/commit/9d93f04ea8f68b969f629f7732a6ad5504a53e4b))
+* stronger bug bounty spec ([009cc01](https://github.com/fulldecent/solidity-template/commit/009cc01ef0723f3ce2202ace91c97c229b78397f))
+
+
+### Bug Fixes
+
+* check NatSpec with lintspec ([ae96aeb](https://github.com/fulldecent/solidity-template/commit/ae96aeb232bd38c47be15157be60f6f6fbf93b0e))
+* check NatSpec with lintspec ([792b94a](https://github.com/fulldecent/solidity-template/commit/792b94a6ab7ef9d7d9cf73129df019331b758954)), closes [#13](https://github.com/fulldecent/solidity-template/issues/13)
+* disallow unsupported Solidity versions ([36bbe3b](https://github.com/fulldecent/solidity-template/commit/36bbe3b6447a527169d2ffc4af0431e90d81852f))
+* install lintspec with cargo ([0d0c064](https://github.com/fulldecent/solidity-template/commit/0d0c06425d8117221878b81f723e6878b07de5b1))
+* use correct NatSpec tags ([bcf4615](https://github.com/fulldecent/solidity-template/commit/bcf461565da958e31e25691c2e3c55a83cd5cd5e))
+
 ## [1.2.0](https://github.com/fulldecent/solidity-template/compare/v1.1.0...v1.2.0) (2026-11-14)
 
 
