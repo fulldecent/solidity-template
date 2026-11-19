@@ -1,0 +1,7 @@
+[lintspec]
+paths = ["contracts"]
+inheritdoc = false
+
+[variable.private]
+notice = "forbidden"
+dev = "required"

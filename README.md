@@ -159,11 +159,30 @@ GitHub Actions runs [checks](.github/workflows) on pushes to `main` and pull req
 ```sh
 npm test
 npm run lint
+npm run lint:natspec
 npm run lint:prettier
 npm run lint:markdown
 npx hardhat build
 npx tsc --noEmit
 ```
+
+`npm run lint:natspec` runs [lintspec](https://github.com/beeb/lintspec) 0.20.0 on `contracts/`. Install rustup from a package manager. [rust-template](https://github.com/fulldecent/rust-template) documents that install. From this directory, rustup installs the toolchain in [rust-toolchain.toml](rust-toolchain.toml) on first use. Then:
+
+```sh
+export PATH="$(dirname "$(rustup which cargo)"):$PATH"
+cargo install lintspec --version 0.20.0 --locked
+npm run lint:natspec
+```
+
+PowerShell:
+
+```powershell
+$bin = Split-Path (rustup which cargo)
+$env:PATH = "$bin;$env:PATH"
+cargo install lintspec --version 0.20.0 --locked
+```
+
+Cargo installs `lintspec` in `$HOME/.cargo/bin` (`%USERPROFILE%\.cargo\bin` on Windows). Add that directory to `PATH` if it is not already there.
 
 `npm run format` rewrites files. Prettier checks the project except Markdown. `.prettierignore` lists `*.md`, and markdownlint checks those files. Both tools are devDependencies, so the versions in the lockfile are the versions continuous integration runs. Pass paths to check a subset, for example `npm run lint:prettier -- hardhat.config.ts` or `npm run lint:markdown -- README.md`. A directory argument is expanded to the Markdown files under it.
 
@@ -224,6 +243,7 @@ Local conventions in this project include:
 We recognize the following as best practice for all Solidity development:
 
 - Fully annotate public ABI with [NatSpec](https://docs.soliditylang.org/en/latest/natspec-format.html), using the `///` flavor.
+- Private state variables use `@dev`, not `@notice`.
 - Align whitespace for tags, then params:
 
   ```solidity
@@ -268,13 +288,15 @@ The repository also carries the toolchain and a few reusable libraries (access c
 ## References
 
 1. We use title case only for proper nouns, including the name of our project.
-2. We recommend to use your package manager to install fnm because the fnm and nvm websites prefer the unsafe `curl|sh` method ([fnm issue](https://github.com/Schniz/fnm/issues/1588)). The same warning applies to Foundry (`getfoundry.sh`) and to rustup. See [rust-lang/rust#163468](https://github.com/rust-lang/rust/issues/163468) and [fulldecent/rust-template](https://github.com/fulldecent/rust-template).
-3. This project is built based on [best practices documented in solidity-template](https://github.com/fulldecent/solidity-template/).
-4. This project is built based on [best practices documented in project-template](https://github.com/fulldecent/project-template), release v1.4.1.
-5. Tooling follows [Hardhat 3](https://hardhat.org/docs/getting-started) with the [viem toolbox](https://hardhat.org/docs/plugins/hardhat-toolbox-viem).
-6. Node.js project practice follows [node.js-template](https://github.com/fulldecent/node.js-template), release v1.2.2. Prettier and markdownlint are devDependencies with package scripts, the approach in [node.js-template issue 5](https://github.com/fulldecent/node.js-template/issues/5). That change is not in v1.2.2. It is pull request [fulldecent/node.js-template#6](https://github.com/fulldecent/node.js-template/pull/6).
-7. Static analysis uses [Slither](https://github.com/crytic/slither) 0.11.6, installed with [uv](https://github.com/astral-sh/uv) 0.13.8.
-8. This project is released under the [Apache License 2.0](LICENSE.md).
+2. We use a workaround so that rustup works without replacing your system Rust programs ([issue](https://github.com/rust-lang/rustup/issues/5025#issuecomment-6869331794)).
+3. We recommend to use your package manager to install fnm because the fnm and nvm websites prefer the unsafe `curl|sh` method ([fnm issue](https://github.com/Schniz/fnm/issues/1588)). The same warning applies to Foundry (`getfoundry.sh`) and to rustup. See [rust-lang/rust#163468](https://github.com/rust-lang/rust/issues/163468) and [fulldecent/rust-template](https://github.com/fulldecent/rust-template).
+4. This project is built based on [best practices documented in solidity-template](https://github.com/fulldecent/solidity-template/).
+5. This project is built based on [best practices documented in project-template](https://github.com/fulldecent/project-template), release v1.4.1.
+6. Tooling follows [Hardhat 3](https://hardhat.org/docs/getting-started) with the [viem toolbox](https://hardhat.org/docs/plugins/hardhat-toolbox-viem).
+7. Node.js project practice follows [node.js-template](https://github.com/fulldecent/node.js-template), release v1.2.2. Prettier and markdownlint are devDependencies with package scripts, the approach in [node.js-template issue 5](https://github.com/fulldecent/node.js-template/issues/5). That change is not in v1.2.2. It is pull request [fulldecent/node.js-template#6](https://github.com/fulldecent/node.js-template/pull/6).
+8. Static analysis uses [Slither](https://github.com/crytic/slither) 0.11.6, installed with [uv](https://github.com/astral-sh/uv) 0.13.8.
+9. NatSpec is checked with [lintspec](https://github.com/beeb/lintspec) 0.20.0, installed with cargo from rustup. The toolchain file follows [rust-template](https://github.com/fulldecent/rust-template), release 1.1.0.
+10. This project is released under the [Apache License 2.0](LICENSE.md).
 
 > [!NOTE]
 > Carefully consider which license to apply to your project. Cite external sources that materially informed your decisions, including the release of this Solidity template you used.

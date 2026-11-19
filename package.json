@@ -11,6 +11,7 @@
     "test": "hardhat test nodejs --gas-stats",
     "coverage": "hardhat test nodejs --coverage",
     "lint": "solhint \"contracts/**/*.sol\"",
+    "lint:natspec": "lintspec",
     "lint:prettier": "node scripts/lint-format.js lint:prettier",
     "lint:markdown": "node scripts/lint-format.js lint:markdown",
     "format": "node scripts/lint-format.js format",
